@@ -1,0 +1,3193 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مُعلّمي | المنصة التعليمية</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="icon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg-dark: #070b14;
+      --bg-panel: #0f172a;
+      --bg-elevated: #162033;
+      --silver: #e2e8f0;
+      --silver-muted: #94a3b8;
+      --neon-blue: #38bdf8;
+      --neon-purple: #a855f7;
+      --success: #10b981;
+      --danger: #f43f5e;
+      --warning: #eab308;
+      --border: rgba(56, 189, 248, 0.22);
+      --glow-blue: 0 0 24px rgba(56, 189, 248, 0.24);
+      --glow-purple: 0 0 28px rgba(168, 85, 247, 0.22);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      scrollbar-width: thin;
+      scrollbar-color: #38bdf8 #070b14;
+    }
+
+    *::-webkit-scrollbar { width: 9px; height: 9px; background: #070b14; }
+    *::-webkit-scrollbar-track { background: #070b14; border-radius: 999px; }
+    *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #38bdf8, #0284c7);
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+    *::-webkit-scrollbar-corner { background: #070b14; }
+
+    html, body {
+      background-color: var(--bg-dark);
+      color: var(--silver);
+      min-height: 100vh;
+      line-height: 1.65;
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.10), transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.10), transparent 42%);
+    }
+
+    button, input, select, textarea {
+      font-family: 'Cairo', sans-serif;
+      color: #e0f2fe;
+      accent-color: #38bdf8;
+      background-color: #0a1324;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-text-fill-color: #e0f2fe !important;
+      -webkit-box-shadow: 0 0 0px 1000px #0a1324 inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    select.form-control option { background-color: #0b162a; color: #e0f2fe; }
+    input[type="radio"], input[type="checkbox"] { accent-color: #38bdf8; width: 16px; height: 16px; cursor: pointer; }
+
+    input[type="file"] {
+      color: #bae6fd;
+      background: #0a1324;
+      padding: 7px 10px;
+    }
+    input[type="file"]::file-selector-button {
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      color: #060913;
+      border: none;
+      border-radius: 9px;
+      padding: 6px 12px;
+      margin-left: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .hidden { display: none !important; }
+
+    .ico { width: 20px; height: 20px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ico-lg { width: 28px; height: 28px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 18px; border-radius: 12px; border: 1px solid transparent;
+      font-weight: 700; cursor: pointer; transition: all 0.22s ease; font-size: 0.94rem;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      color: #060913; font-weight: 800; box-shadow: var(--glow-blue);
+    }
+    .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(56, 189, 248, 0.12); color: var(--neon-blue); border-color: rgba(56, 189, 248, 0.35);
+    }
+    .btn-success {
+      background: rgba(16, 185, 129, 0.14); color: #34d399; border-color: rgba(16, 185, 129, 0.35);
+    }
+    .btn-danger {
+      background: rgba(244, 63, 94, 0.14); color: #fb7185; border-color: rgba(244, 63, 94, 0.35);
+    }
+    .btn-outline {
+      background: rgba(12, 24, 46, 0.85); color: #bae6fd; border-color: rgba(56, 189, 248, 0.32);
+    }
+    .btn-outline:hover { border-color: var(--neon-blue); color: #fff; background: rgba(56, 189, 248, 0.16); }
+    .btn-sm { padding: 6px 12px; font-size: 0.84rem; border-radius: 9px; }
+    .btn-step {
+      width: 34px; height: 34px; padding: 0; border-radius: 10px; font-size: 1.1rem; font-weight: 900;
+      background: rgba(56, 189, 248, 0.14); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4);
+      cursor: pointer;
+    }
+    .btn-step:hover { background: rgba(56, 189, 248, 0.28); color: #fff; }
+
+    .input-group { margin-bottom: 14px; text-align: right; }
+    .input-group label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; color: #bae6fd; }
+    .form-control {
+      width: 100%; padding: 11px 14px; border: 1.5px solid rgba(56, 189, 248, 0.28); border-radius: 12px;
+      font-size: 0.96rem; transition: all 0.2s; background: #0a1324; color: #e0f2fe;
+    }
+    .form-control:focus {
+      outline: none; border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .card {
+      background: var(--bg-panel); border-radius: var(--radius); padding: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.22); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px;
+      border-radius: 999px; font-size: 0.78rem; font-weight: 700;
+    }
+    .badge-blue { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.38); }
+    .badge-purple { background: rgba(168, 85, 247, 0.16); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.35); }
+    .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .badge-warning { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.35); }
+    .badge-danger { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.35); }
+
+    .rank-1 { border-color: rgba(251, 191, 36, 0.75) !important; box-shadow: 0 0 22px rgba(251, 191, 36, 0.22) !important; background: linear-gradient(90deg, rgba(251, 191, 36, 0.14), rgba(15, 23, 42, 0.95)) !important; }
+    .rank-2 { border-color: rgba(203, 213, 225, 0.65) !important; background: linear-gradient(90deg, rgba(203, 213, 225, 0.12), rgba(15, 23, 42, 0.95)) !important; }
+    .rank-3 { border-color: rgba(217, 119, 6, 0.65) !important; background: linear-gradient(90deg, rgba(217, 119, 6, 0.13), rgba(15, 23, 42, 0.95)) !important; }
+    .rank-pill-1 { background: rgba(251, 191, 36, 0.22); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.6); }
+    .rank-pill-2 { background: rgba(203, 213, 225, 0.2); color: #e2e8f0; border: 1px solid rgba(203, 213, 225, 0.55); }
+    .rank-pill-3 { background: rgba(217, 119, 6, 0.22); color: #f59e0b; border: 1px solid rgba(217, 119, 6, 0.55); }
+
+    #toast-container {
+      position: fixed; bottom: 24px; left: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;
+    }
+    .toast {
+      padding: 13px 18px; border-radius: 12px; font-weight: 700; max-width: 380px;
+      background: #0d1b33; border: 1px solid rgba(56, 189, 248, 0.4); box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+      animation: slideUp 0.25s ease;
+    }
+    .toast-success { border-color: rgba(16, 185, 129, 0.5); color: #34d399; }
+    .toast-error { border-color: rgba(244, 63, 94, 0.5); color: #fb7185; }
+    .toast-info { border-color: rgba(56, 189, 248, 0.55); color: #7dd3fc; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    #global-loader {
+      position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 9998;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+      backdrop-filter: blur(5px);
+    }
+    .spinner {
+      width: 44px; height: 44px; border: 4px solid rgba(56, 189, 248, 0.2);
+      border-top-color: #38bdf8; border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-wrapper {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .auth-box { width: 100%; max-width: 480px; text-align: center; }
+    .brand-logo {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      font-size: 2.1rem; font-weight: 900; letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #e0f2fe, var(--neon-blue), var(--neon-purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .brand-mark {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      color: #060913; display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--glow-purple); -webkit-text-fill-color: initial;
+    }
+    .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .role-card {
+      padding: 24px 14px; border-radius: 16px; border: 1.5px solid rgba(56, 189, 248, 0.28);
+      background: #0d192f; cursor: pointer; transition: all 0.24s ease; text-align: center;
+    }
+    .role-card:hover {
+      border-color: #38bdf8; transform: translateY(-3px); box-shadow: var(--glow-blue); background: #10203c;
+    }
+    .role-icon-ring {
+      width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(56, 189, 248, 0.14); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+    .role-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 4px; color: #e0f2fe; }
+    .role-card p { font-size: 0.84rem; color: var(--silver-muted); }
+
+    .tabs-header {
+      display: flex; background: #091222; padding: 5px; border-radius: 12px;
+      margin-bottom: 18px; border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .tab-btn {
+      flex: 1; padding: 9px; border: none; background: transparent; border-radius: 9px;
+      font-weight: 700; color: var(--silver-muted); cursor: pointer; transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: rgba(56, 189, 248, 0.18); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .topbar {
+      background: rgba(10, 19, 36, 0.96); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25); padding: 13px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 10px;
+    }
+    .topbar-brand {
+      display: flex; align-items: center; gap: 10px; font-size: 1.35rem; font-weight: 900; color: #e0f2fe;
+      flex-wrap: wrap;
+    }
+    .change-class-inline-btn {
+      padding: 4px 11px; border-radius: 999px; font-size: 0.78rem; font-weight: 800;
+      background: rgba(56, 189, 248, 0.16); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45);
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .change-class-inline-btn:hover {
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      color: #060913; border-color: transparent;
+    }
+
+    .dashboard-layout { display: flex; min-height: calc(100vh - 67px); }
+    .sidebar {
+      width: 265px; background: var(--bg-panel); border-left: 1px solid rgba(56, 189, 248, 0.22);
+      padding: 18px 12px; display: flex; flex-direction: column; gap: 6px; flex-shrink: 0;
+    }
+    .sidebar-section-title {
+      font-size: 0.76rem; font-weight: 800; color: #7dd3fc;
+      padding: 8px 12px 4px; letter-spacing: 0.3px;
+    }
+    .nav-item {
+      display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 12px;
+      border: 1px solid transparent; background: transparent; color: #94a3b8;
+      font-weight: 700; font-size: 0.93rem; cursor: pointer; text-align: right; transition: 0.2s; width: 100%;
+    }
+    .nav-item:hover { background: rgba(56, 189, 248, 0.1); color: #e0f2fe; }
+    .nav-item.active {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.22), rgba(56, 189, 248, 0.06));
+      color: #7dd3fc; border-color: rgba(56, 189, 248, 0.45);
+    }
+    .main-content { flex: 1; padding: 24px; max-width: 1180px; margin: 0 auto; width: 100%; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .stat-card {
+      background: var(--bg-panel); padding: 18px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.22);
+      display: flex; align-items: center; gap: 14px; transition: all 0.2s ease;
+    }
+    .stat-card.clickable-stat { cursor: pointer; }
+    .stat-card.clickable-stat:hover { border-color: var(--neon-blue); transform: translateY(-2px); box-shadow: var(--glow-blue); }
+    .stat-card.active-filter { border-color: var(--neon-purple); box-shadow: var(--glow-purple); background: #121c33; }
+    .stat-icon {
+      width: 48px; height: 48px; border-radius: 13px; display: flex; align-items: center; justify-content: center;
+      background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(295px, 1fr)); gap: 16px; }
+    .class-code-box {
+      background: #081120; border: 1.5px dashed rgba(56, 189, 248, 0.45); border-radius: 11px;
+      padding: 10px 12px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; margin: 12px 0;
+    }
+    .code-num { font-size: 1.15rem; font-weight: 900; letter-spacing: 2px; color: #38bdf8; }
+    .code-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .wheel-container { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 12px 0; }
+    .wheel-pointer {
+      width: 0; height: 0; border-left: 16px solid transparent; border-right: 16px solid transparent;
+      border-top: 28px solid #38bdf8; margin-bottom: -10px; z-index: 5;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7));
+    }
+    canvas#wheelCanvas {
+      border-radius: 50%; box-shadow: 0 14px 34px rgba(0,0,0,0.55), var(--glow-blue);
+      max-width: 100%; border: 3px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .chat-box {
+      height: 360px; overflow-y: auto; padding: 14px; background: #070d1a;
+      border: 1.5px solid rgba(56, 189, 248, 0.28); border-radius: 14px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .chat-msg {
+      max-width: 78%; padding: 10px 14px; border-radius: 14px; background: #0d1a30;
+      border: 1px solid rgba(56, 189, 248, 0.22); align-self: flex-start;
+    }
+    .chat-msg.mine {
+      background: rgba(56, 189, 248, 0.18); border-color: rgba(56, 189, 248, 0.48); align-self: flex-end;
+    }
+    .chat-meta {
+      font-size: 0.78rem; color: #93c5fd; display: flex; justify-content: space-between;
+      gap: 12px; margin-bottom: 4px; font-weight: 700;
+    }
+
+    .media-frame { width: 100%; border-radius: 12px; overflow: hidden; margin-top: 10px; background: #050a14; border: 1px solid rgba(56, 189, 248, 0.25); }
+    .media-frame iframe, .media-frame video { width: 100%; height: 220px; border: none; display: block; background: #050a14; }
+    .media-img { width: 100%; max-height: 240px; object-fit: cover; border-radius: 12px; margin-top: 10px; border: 1px solid rgba(56, 189, 248, 0.25); }
+
+    .quiz-list-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+      padding: 16px 18px; border-radius: 14px; background: #0c192f; border: 1px solid rgba(56, 189, 248, 0.28);
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .quiz-list-item:hover {
+      border-color: #38bdf8; background: #102240; transform: translateY(-2px); box-shadow: var(--glow-blue);
+    }
+
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(2, 6, 23, 0.82); z-index: 2000;
+      display: flex; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(4px);
+    }
+    .modal-card {
+      background: var(--bg-panel); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 18px;
+      width: 100%; max-width: 680px; max-height: 88vh; overflow-y: auto; padding: 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+    }
+
+    body.is-mobile .topbar { padding: 10px 12px; gap: 8px; }
+    body.is-mobile .topbar-brand { font-size: 1.05rem; gap: 6px; }
+    body.is-mobile .dashboard-layout { flex-direction: column; min-height: calc(100vh - 56px); }
+    body.is-mobile .sidebar {
+      width: 100%; position: sticky; top: 54px; z-index: 90;
+      border-left: none; border-bottom: 1px solid rgba(56, 189, 248, 0.28);
+      flex-direction: row; align-items: center; overflow-x: auto;
+      padding: 8px 10px; gap: 6px; background: rgba(11, 19, 36, 0.98); backdrop-filter: blur(10px);
+    }
+    body.is-mobile .sidebar-section-title,
+    body.is-mobile #sidebar-class-group > .sidebar-section-title { display: none !important; }
+    body.is-mobile #sidebar-class-group {
+      flex-direction: row !important; margin-top: 0 !important; padding-top: 0 !important;
+      border-top: none !important; gap: 6px !important;
+    }
+    body.is-mobile .nav-item {
+      width: auto; white-space: nowrap; padding: 8px 12px; font-size: 0.82rem; border-radius: 999px; flex-shrink: 0;
+    }
+    body.is-mobile .main-content { padding: 14px 12px 28px; }
+    body.is-mobile .card { padding: 14px; border-radius: 14px; }
+    body.is-mobile .grid-2, body.is-mobile .stats-grid { grid-template-columns: 1fr; gap: 10px; }
+    body.is-mobile .role-grid { grid-template-columns: 1fr; gap: 10px; }
+    body.is-mobile .btn { padding: 9px 13px; font-size: 0.86rem; }
+    body.is-mobile .chat-box { height: 300px; }
+    body.is-mobile .chat-msg { max-width: 90%; }
+    body.is-mobile canvas#wheelCanvas { width: 270px; height: 270px; }
+    body.is-mobile #toast-container { left: 12px; right: 12px; bottom: 14px; }
+    body.is-mobile .toast { max-width: 100%; }
+  </style>
+</head>
+<body>
+
+  <svg style="display:none;" aria-hidden="true">
+    <symbol id="icon-brand" viewBox="0 0 24 24">
+      <path d="M12 3L2 8l10 5 10-5-10-5z"></path>
+      <path d="M6 10.5v6c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-6"></path>
+    </symbol>
+    <symbol id="icon-teacher" viewBox="0 0 24 24">
+      <circle cx="12" cy="7" r="4"></circle>
+      <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path>
+    </symbol>
+    <symbol id="icon-student" viewBox="0 0 24 24">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+    </symbol>
+    <symbol id="icon-overview" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+    </symbol>
+    <symbol id="icon-classes" viewBox="0 0 24 24">
+      <path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </symbol>
+    <symbol id="icon-students" viewBox="0 0 24 24">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+    </symbol>
+    <symbol id="icon-wheel" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <circle cx="12" cy="12" r="2.5"></circle>
+      <line x1="12" y1="3" x2="12" y2="9.5"></line>
+      <line x1="12" y1="14.5" x2="12" y2="21"></line>
+      <line x1="3" y1="12" x2="9.5" y2="12"></line>
+      <line x1="14.5" y1="12" x2="21" y2="12"></line>
+    </symbol>
+    <symbol id="icon-quiz" viewBox="0 0 24 24">
+      <path d="M9 11l3 3L22 4"></path>
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+    </symbol>
+    <symbol id="icon-media" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+      <polygon points="10 9 15 12 10 15 10 9"></polygon>
+    </symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06-.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </symbol>
+    <symbol id="icon-logout" viewBox="0 0 24 24">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+      <polyline points="16 17 21 12 16 7"></polyline>
+      <line x1="21" y1="12" x2="9" y2="12"></line>
+    </symbol>
+    <symbol id="icon-analytics" viewBox="0 0 24 24">
+      <line x1="18" y1="20" x2="18" y2="10"></line>
+      <line x1="12" y1="20" x2="12" y2="4"></line>
+      <line x1="6" y1="20" x2="6" y2="14"></line>
+    </symbol>
+    <symbol id="icon-homework" viewBox="0 0 24 24">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="8" y1="13" x2="16" y2="13"></line>
+      <line x1="8" y1="17" x2="13" y2="17"></line>
+    </symbol>
+    <symbol id="icon-trophy" viewBox="0 0 24 24">
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+      <path d="M4 22h16"></path>
+      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="6"></circle>
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    </symbol>
+  </svg>
+
+  <div id="global-loader" class="hidden">
+    <div class="spinner"></div>
+    <p style="font-weight:700; color:var(--neon-blue);">جاري المعالجة...</p>
+  </div>
+  <div id="toast-container"></div>
+
+  <!-- ==================== 1. WELCOME & ROLE SELECTION ==================== -->
+  <section id="view-welcome" class="hero-wrapper">
+    <div class="auth-box card">
+      <div class="brand-logo">
+        <span class="brand-mark"><svg class="ico ico-lg"><use href="#icon-brand"></use></svg></span>
+        <span>مُعلّمي</span>
+      </div>
+      <p style="color:var(--silver-muted); font-size:0.98rem; margin-top:6px;">
+        منصة تعليمية متكاملة لإدارة الصفوف، الطلاب، الاختبارات، الواجبات، والشهادات
+      </p>
+
+      <div class="role-grid">
+        <div class="role-card" onclick="openRoleAuth('teacher')">
+          <div class="role-icon-ring"><svg class="ico ico-lg"><use href="#icon-teacher"></use></svg></div>
+          <h3>معلم</h3>
+          <p>إدارة الصفوف، التحليلات، الواجبات، والمتصدرين</p>
+        </div>
+        <div class="role-card" onclick="openRoleAuth('student')">
+          <div class="role-icon-ring"><svg class="ico ico-lg"><use href="#icon-student"></use></svg></div>
+          <h3>طالب</h3>
+          <p>الدخول بحسابك ورمز الصف، إنجازاتي، وشهاداتي</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. UNIFIED AUTH + TEACHER CODE ==================== -->
+  <section id="view-auth" class="hero-wrapper hidden">
+    <div class="auth-box card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <button class="btn btn-outline btn-sm" onclick="goHome()">العودة للرئيسية</button>
+        <span id="auth-role-badge" class="badge badge-blue"></span>
+      </div>
+
+      <div class="brand-logo" style="font-size:1.75rem;">
+        <span class="brand-mark" style="width:40px; height:40px;"><svg class="ico"><use href="#icon-brand"></use></svg></span>
+        <span>مُعلّمي</span>
+      </div>
+
+      <div id="auth-forms-container">
+        <div class="tabs-header" style="margin-top:16px;">
+          <button id="tab-login" class="tab-btn active" onclick="switchAuthTab('login')">تسجيل الدخول</button>
+          <button id="tab-register" class="tab-btn" onclick="switchAuthTab('register')">إنشاء حساب جديد</button>
+        </div>
+
+        <form id="form-login" onsubmit="handleLogin(event)" autocomplete="off">
+          <div class="input-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="login-email" class="form-control" autocomplete="off" required />
+          </div>
+          <div class="input-group">
+            <label>كلمة المرور</label>
+            <input type="password" id="login-password" class="form-control" autocomplete="new-password" required />
+          </div>
+          <div id="login-student-code-group" class="input-group hidden">
+            <label>رمز الصف</label>
+            <input type="text" id="login-class-code" class="form-control" autocomplete="off"
+                   style="text-align:center; font-size:1.2rem; letter-spacing:4px; font-weight:900;" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">دخول إلى الحساب</button>
+        </form>
+
+        <form id="form-register" class="hidden" onsubmit="handleRegister(event)" autocomplete="off">
+          <div class="input-group">
+            <label id="reg-name-label">الاسم الكامل</label>
+            <input type="text" id="reg-name" class="form-control" autocomplete="off" required />
+          </div>
+          <div class="input-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="reg-email" class="form-control" autocomplete="off" required />
+          </div>
+          <div class="input-group">
+            <label>كلمة المرور (6 أحرف على الأقل — غير مكررة)</label>
+            <input type="password" id="reg-password" class="form-control" minlength="6" autocomplete="new-password" required />
+          </div>
+          <div id="reg-student-code-group" class="input-group hidden">
+            <label>رمز الصف</label>
+            <input type="text" id="reg-class-code" class="form-control" autocomplete="off"
+                   style="text-align:center; font-size:1.2rem; letter-spacing:4px; font-weight:900;" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">إنشاء الحساب وإرسال رابط التحقق</button>
+        </form>
+
+        <div id="verify-email-box" class="hidden" style="margin-top:18px; padding:16px; border-radius:14px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.4); text-align:right;">
+          <div style="font-weight:800; color:#7dd3fc; margin-bottom:6px;">تأكيد البريد الإلكتروني مطلوب</div>
+          <p style="font-size:0.88rem; color:var(--silver); margin-bottom:12px;">
+            تم إرسال رسالة تحقق إلى بريدك الإلكتروني. افتح صندوق الوارد واضغط على رابط التفعيل، ثم اضغط زر التحقق أدناه.
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-success btn-sm" onclick="checkEmailVerifiedAndProceed()">تم التفعيل، متابعة الدخول</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="resendVerificationLink()">إعادة إرسال الرابط</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="teacher-code-box" class="hidden" style="margin-top:18px; padding:18px; border-radius:14px; background:#0b172c; border:1.5px solid rgba(56,189,248,0.4); text-align:right;">
+        <div style="font-weight:800; color:#7dd3fc; margin-bottom:6px;">رمز المعلمين</div>
+        <p style="font-size:0.88rem; color:var(--silver-muted); margin-bottom:12px;">
+          أدخل رمز المعلمين للدخول إلى لوحة المعلم.
+        </p>
+        <form onsubmit="handleVerifyTeacherCode(event)" autocomplete="off">
+          <div class="input-group">
+            <label>رمز المعلمين</label>
+            <input type="password" id="teacher-secret-input" class="form-control" autocomplete="new-password"
+                   style="text-align:center; font-size:1.25rem; letter-spacing:6px; font-weight:900;" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">تأكيد رمز المعلمين</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. TEACHER DASHBOARD ==================== -->
+  <section id="view-teacher-dash" class="hidden">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="brand-mark" style="width:36px; height:36px; border-radius:10px;"><svg class="ico"><use href="#icon-brand"></use></svg></span>
+        <span>مُعلّمي</span>
+        <span id="topbar-active-class-badge" class="badge badge-purple"></span>
+        <button id="teacher-change-class-btn" type="button" class="change-class-inline-btn hidden" onclick="openClassSwitcherModal('teacher')">تغيير الصف</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span id="topbar-teacher-name" style="font-weight:800; color:#e0f2fe;"></span>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar-section-title">الحساب والصفوف</div>
+        <button class="nav-item active" data-tab="overview" onclick="switchTeacherTab('overview')">
+          <svg class="ico"><use href="#icon-overview"></use></svg><span>نظرة عامة</span>
+        </button>
+        <button class="nav-item" data-tab="classes" onclick="switchTeacherTab('classes')">
+          <svg class="ico"><use href="#icon-classes"></use></svg><span>الصفوف</span>
+        </button>
+
+        <div id="sidebar-class-group" class="hidden" style="display:flex; flex-direction:column; gap:6px; margin-top:6px; padding-top:8px; border-top:1px solid var(--border);">
+          <div id="sidebar-class-label" class="sidebar-section-title" style="color:var(--neon-blue);">أدوات الصف النشط</div>
+          <button class="nav-item" data-tab="analytics" onclick="switchTeacherTab('analytics')">
+            <svg class="ico"><use href="#icon-analytics"></use></svg><span>تحليلات الطلاب</span>
+          </button>
+          <button class="nav-item" data-tab="students" onclick="switchTeacherTab('students')">
+            <svg class="ico"><use href="#icon-students"></use></svg><span>الطلاب والدرجات</span>
+          </button>
+          <button class="nav-item" data-tab="homework" onclick="switchTeacherTab('homework')">
+            <svg class="ico"><use href="#icon-homework"></use></svg><span>الواجبات المنزلية</span>
+          </button>
+          <button class="nav-item" data-tab="leaderboard" onclick="switchTeacherTab('leaderboard')">
+            <svg class="ico"><use href="#icon-trophy"></use></svg><span>المتصدرون</span>
+          </button>
+          <button class="nav-item" data-tab="wheel" onclick="switchTeacherTab('wheel')">
+            <svg class="ico"><use href="#icon-wheel"></use></svg><span>العجلة الدوارة</span>
+          </button>
+          <button class="nav-item" data-tab="quizzes" onclick="switchTeacherTab('quizzes')">
+            <svg class="ico"><use href="#icon-quiz"></use></svg><span>الاختبارات</span>
+          </button>
+          <button class="nav-item" data-tab="media" onclick="switchTeacherTab('media')">
+            <svg class="ico"><use href="#icon-media"></use></svg><span>الفيديوهات والصور</span>
+          </button>
+          <button class="nav-item" data-tab="chat" onclick="switchTeacherTab('chat')">
+            <svg class="ico"><use href="#icon-chat"></use></svg><span>الدردشة الجماعية</span>
+          </button>
+          <button class="nav-item" data-tab="certificates" onclick="switchTeacherTab('certificates')">
+            <svg class="ico"><use href="#icon-award"></use></svg><span>منح شهادة</span>
+          </button>
+        </div>
+
+        <div class="sidebar-section-title" style="margin-top:8px;">النظام</div>
+        <button class="nav-item" data-tab="settings" onclick="switchTeacherTab('settings')">
+          <svg class="ico"><use href="#icon-settings"></use></svg><span>الإعدادات</span>
+        </button>
+      </aside>
+
+      <main class="main-content">
+        <div id="t-tab-overview">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">مرحباً بك، <span id="welcome-teacher-name" style="color:var(--neon-blue);"></span></h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-classes"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">عدد الصفوف</div>
+                <div id="stat-classes-count" style="font-size:1.6rem; font-weight:900; color:#e0f2fe;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-students"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الطلاب الداخلون</div>
+                <div id="stat-students-count" style="font-size:1.6rem; font-weight:900; color:#e0f2fe;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-quiz"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الاختبارات</div>
+                <div id="stat-quizzes-count" style="font-size:1.6rem; font-weight:900; color:#e0f2fe;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-homework"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الواجبات المنزلية</div>
+                <div id="stat-homework-count" style="font-size:1.6rem; font-weight:900; color:#e0f2fe;">0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#e0f2fe;">صفوفك الدراسية</h3>
+            <div id="overview-classes-list" class="grid-2"></div>
+          </div>
+        </div>
+
+        <div id="t-tab-classes" class="hidden">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+            <h2 style="color:#e0f2fe;">إدارة الصفوف</h2>
+            <button class="btn btn-primary" onclick="openAddClassModal()">إضافة صف جديد</button>
+          </div>
+          <div id="classes-grid" class="grid-2"></div>
+        </div>
+
+        <div id="t-tab-analytics" class="hidden">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">لوحة تحليلات الطلاب (حسب الصف)</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-analytics"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">متوسط درجات الصف</div>
+                <div id="an-avg-grade" style="font-size:1.55rem; font-weight:900; color:#38bdf8;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-quiz"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">نسبة إنجاز الاختبارات</div>
+                <div id="an-quiz-completion" style="font-size:1.55rem; font-weight:900; color:#a855f7;">0%</div>
+              </div>
+            </div>
+            <div id="stat-card-top" class="stat-card clickable-stat" onclick="focusAnalyticsGroup('top')">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-star"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">عدد المتفوقين (اضغط للعرض)</div>
+                <div id="an-top-count" style="font-size:1.55rem; font-weight:900; color:#34d399;">0</div>
+              </div>
+            </div>
+            <div id="stat-card-help" class="stat-card clickable-stat" onclick="focusAnalyticsGroup('help')">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-students"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">محتاج مساعدة (اضغط للعرض)</div>
+                <div id="an-help-count" style="font-size:1.55rem; font-weight:900; color:#fb7185;">0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div id="an-top-panel" class="card">
+              <h3 style="margin-bottom:12px; color:#34d399;">الطلاب المتفوقون</h3>
+              <div id="an-top-students"></div>
+            </div>
+            <div id="an-help-panel" class="card">
+              <h3 style="margin-bottom:12px; color:#fb7185;">طلاب يحتاجون مساعدة</h3>
+              <div id="an-help-students"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="t-tab-students" class="hidden">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+              <div>
+                <h3 style="color:#e0f2fe;">طلاب الصف والدرجات (<span id="students-total-badge">0</span>)</h3>
+                <p style="font-size:0.85rem; color:var(--silver-muted);">
+                  المعلم يضيف أو ينقص الدرجة (+) / (-)، والطالب يزيد درجته عند حل الاختبارات
+                </p>
+              </div>
+            </div>
+            <div id="students-list"></div>
+          </div>
+        </div>
+
+        <div id="t-tab-homework" class="hidden">
+          <div class="card" style="margin-bottom:18px;">
+            <h3 style="margin-bottom:14px; color:#e0f2fe;">نشر واجب منزلي جديد</h3>
+            <form onsubmit="handleAddHomework(event)">
+              <div class="grid-2" style="gap:12px;">
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>عنوان الواجب</label>
+                  <input type="text" id="hw-title" class="form-control" required />
+                </div>
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>موعد التسليم</label>
+                  <input type="datetime-local" id="hw-due" class="form-control" required />
+                </div>
+              </div>
+              <div class="input-group" style="margin-top:12px;">
+                <label>تفاصيل الواجب والمطلوب</label>
+                <textarea id="hw-desc" class="form-control" rows="2" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">نشر الواجب</button>
+            </form>
+          </div>
+
+          <div id="teacher-homework-list" style="display:flex; flex-direction:column; gap:14px;"></div>
+        </div>
+
+        <div id="t-tab-leaderboard" class="hidden">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+              <div>
+                <h3 style="color:#e0f2fe;">لوحة المتصدرين (حسب الدرجة والمستوى)</h3>
+                <p style="font-size:0.85rem; color:var(--silver-muted);">الأول ذهبي، الثاني فضي، الثالث برونزي — خاصة بهذا الصف فقط</p>
+              </div>
+              <button id="toggle-lb-btn" class="btn btn-outline btn-sm" onclick="toggleLeaderboardVisibility()">إخفاء / إظهار اللوحة للطلاب</button>
+            </div>
+            <div id="teacher-leaderboard-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+          </div>
+        </div>
+
+        <div id="t-tab-wheel" class="hidden">
+          <div class="card">
+            <h2 style="margin-bottom:6px; text-align:center; color:#e0f2fe;">العجلة الدوارة لطلاب الصف</h2>
+            <p style="color:var(--silver-muted); text-align:center; margin-bottom:14px; font-size:0.9rem;">
+              تضم تلقائياً الطلاب الذين دخلوا الصف المحدد ويمكنك استبعاد أو إعادة أي طالب
+            </p>
+
+            <div class="wheel-container">
+              <div class="wheel-pointer"></div>
+              <canvas id="wheelCanvas" width="340" height="340"></canvas>
+
+              <div id="wheel-winner-box" class="hidden" style="text-align:center; background:#0d1c36; padding:16px 24px; border-radius:14px; border:1.5px solid var(--neon-blue);">
+                <div style="font-size:0.86rem; font-weight:700; color:var(--neon-blue);">الطالب المختار</div>
+                <div id="wheel-winner-name" style="font-size:1.55rem; font-weight:900; color:#e0f2fe; margin:4px 0;"></div>
+                <div style="display:flex; gap:10px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
+                  <button class="btn btn-danger btn-sm" onclick="excludeWinner()">استبعاد الطالب</button>
+                  <button class="btn btn-secondary btn-sm" onclick="spinWheel()">إعادة الدوران</button>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+                <button id="spin-btn" class="btn btn-primary" onclick="spinWheel()">بدء الدوران</button>
+                <button class="btn btn-outline" onclick="restoreExcludedStudents()">إعادة جميع المستبعدين</button>
+              </div>
+
+              <div id="excluded-students-area" style="width:100%; max-width:500px; text-align:right; margin-top:8px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="t-tab-quizzes" class="hidden">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+            <h2 style="color:#e0f2fe;">اختبارات الصف</h2>
+            <button class="btn btn-primary" onclick="openQuizModal()">إضافة اختبار</button>
+          </div>
+          <div id="teacher-quizzes-list" style="display:flex; flex-direction:column; gap:16px; margin-bottom:22px;"></div>
+
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#7dd3fc;">الاختبارات المرسلة من الطلاب للمعلم (خاص بكل طالب)</h3>
+            <div id="teacher-sent-quizzes-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+          </div>
+        </div>
+
+        <div id="t-tab-media" class="hidden">
+          <div class="card" style="margin-bottom:18px;">
+            <h3 style="margin-bottom:14px; color:#e0f2fe;">إضافة فيديو أو صورة للصف (عبر رابط)</h3>
+            <form onsubmit="handleAddMedia(event)">
+              <div class="grid-2" style="gap:12px;">
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>نوع المحتوى</label>
+                  <select id="media-type" class="form-control">
+                    <option value="video">فيديو (رابط يوتيوب أو رابط مباشر)</option>
+                    <option value="image">صورة (رابط صورة مباشر)</option>
+                  </select>
+                </div>
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>عنوان المحتوى</label>
+                  <input type="text" id="media-title" class="form-control" required />
+                </div>
+              </div>
+              <div class="input-group" style="margin-top:12px;">
+                <label>رابط الفيديو أو الصورة</label>
+                <input type="url" id="media-url" class="form-control" required />
+              </div>
+              <div class="input-group">
+                <label>وصف أو شرح</label>
+                <textarea id="media-desc" class="form-control" rows="2"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">حفظ المحتوى</button>
+            </form>
+          </div>
+
+          <div id="teacher-media-list" class="grid-2"></div>
+        </div>
+
+        <div id="t-tab-chat" class="hidden">
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#e0f2fe;">الدردشة الجماعية للصف</h3>
+            <div id="teacher-chat-box" class="chat-box"></div>
+            <form onsubmit="handleTeacherSendChat(event)" style="display:flex; gap:10px; margin-top:12px;">
+              <input type="text" id="teacher-chat-input" class="form-control" placeholder="اكتب رسالتك للصف..." required />
+              <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="t-tab-certificates" class="hidden">
+          <div class="card" style="margin-bottom:18px;">
+            <h3 style="margin-bottom:14px; color:#e0f2fe;">منح شهادة لطالب الصف (ملف PDF أو صورة / رابط)</h3>
+            <form onsubmit="handleIssueCertificate(event)">
+              <div class="grid-2" style="gap:12px;">
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>اختر الطالب</label>
+                  <select id="cert-student-select" class="form-control" required></select>
+                </div>
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>عنوان الشهادة / التكريم</label>
+                  <input type="text" id="cert-title" class="form-control" required />
+                </div>
+              </div>
+              <div class="grid-2" style="gap:12px; margin-top:12px;">
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>رفع ملف PDF أو صورة الشهادة</label>
+                  <input type="file" id="cert-file" class="form-control" accept="application/pdf,image/*" />
+                </div>
+                <div class="input-group" style="margin-bottom:0;">
+                  <label>رابط ملف PDF أو صورة الشهادة (اختياري)</label>
+                  <input type="url" id="cert-url" class="form-control" placeholder="https://..." />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top:12px;">منح الشهادة</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#e0f2fe;">الشهادات الممنوحة في هذا الصف</h3>
+            <div id="teacher-certificates-list" class="grid-2"></div>
+          </div>
+        </div>
+
+        <div id="t-tab-settings" class="hidden">
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="margin-bottom:14px; color:#e0f2fe;">تعديل الاسم والبريد الإلكتروني</h3>
+              <form onsubmit="handleUpdateProfile('teacher', event)">
+                <div class="input-group">
+                  <label>الاسم</label>
+                  <input type="text" id="t-settings-name" class="form-control" required />
+                </div>
+                <div class="input-group">
+                  <label>البريد الإلكتروني</label>
+                  <input type="email" id="t-settings-email" class="form-control" required />
+                </div>
+                <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-bottom:14px; color:#e0f2fe;">تغيير كلمة المرور وإدارة الجلسة</h3>
+              <form onsubmit="handleChangePassword('teacher', event)">
+                <div class="input-group">
+                  <label>كلمة المرور الحالية</label>
+                  <input type="password" id="t-current-pass" class="form-control" required />
+                </div>
+                <div class="input-group">
+                  <label>كلمة المرور الجديدة (6 أحرف على الأقل — غير مكررة)</label>
+                  <input type="password" id="t-new-pass" class="form-control" minlength="6" required />
+                </div>
+                <button type="submit" class="btn btn-secondary">تحديث كلمة المرور</button>
+              </form>
+
+              <hr style="margin:20px 0; border:none; border-top:1px solid var(--border);" />
+              <button type="button" class="btn btn-danger" style="width:100%;" onclick="handleLogout()">
+                <svg class="ico"><use href="#icon-logout"></use></svg>
+                <span>تسجيل الخروج من الحساب</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ==================== 4. STUDENT DASHBOARD ==================== -->
+  <section id="view-student-dash" class="hidden">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="brand-mark" style="width:36px; height:36px; border-radius:10px;"><svg class="ico"><use href="#icon-brand"></use></svg></span>
+        <span>مُعلّمي</span>
+        <span id="student-class-badge" class="badge badge-purple"></span>
+        <button type="button" class="change-class-inline-btn" onclick="openClassSwitcherModal('student')">تغيير الصف</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <span id="student-header-name" style="font-weight:800; color:#7dd3fc;"></span>
+        <span id="student-grade-level-badge" class="badge badge-blue">الدرجة: 0 • المستوى 1</span>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar-section-title">أقسام الصف</div>
+        <button class="nav-item active" data-stab="chat" onclick="switchStudentTab('chat')">
+          <svg class="ico"><use href="#icon-chat"></use></svg><span>دردشة الصف</span>
+        </button>
+        <button class="nav-item" data-stab="homework" onclick="switchStudentTab('homework')">
+          <svg class="ico"><use href="#icon-homework"></use></svg><span>الواجبات المنزلية</span>
+        </button>
+        <button class="nav-item" data-stab="quizzes" onclick="switchStudentTab('quizzes')">
+          <svg class="ico"><use href="#icon-quiz"></use></svg><span>الاختبارات</span>
+        </button>
+        <button class="nav-item" data-stab="media" onclick="switchStudentTab('media')">
+          <svg class="ico"><use href="#icon-media"></use></svg><span>الفيديوهات والصور</span>
+        </button>
+        <button class="nav-item" data-stab="leaderboard" onclick="switchStudentTab('leaderboard')">
+          <svg class="ico"><use href="#icon-trophy"></use></svg><span>المتصدرون</span>
+        </button>
+        <button class="nav-item" data-stab="achievements" onclick="switchStudentTab('achievements')">
+          <svg class="ico"><use href="#icon-star"></use></svg><span>إنجازاتي</span>
+        </button>
+        <button class="nav-item" data-stab="certificates" onclick="switchStudentTab('certificates')">
+          <svg class="ico"><use href="#icon-award"></use></svg><span>شهاداتي</span>
+        </button>
+        <button class="nav-item" data-stab="settings" onclick="switchStudentTab('settings')">
+          <svg class="ico"><use href="#icon-settings"></use></svg><span>الإعدادات</span>
+        </button>
+      </aside>
+
+      <main class="main-content">
+        <div id="s-tab-chat">
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#e0f2fe;">دردشة الصف</h3>
+            <div id="student-chat-box" class="chat-box"></div>
+            <form onsubmit="handleStudentSendChat(event)" style="display:flex; gap:10px; margin-top:12px;">
+              <input type="text" id="student-chat-input" class="form-control" placeholder="اكتب رسالتك للصف..." required />
+              <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="s-tab-homework" class="hidden">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">الواجبات المنزلية</h2>
+          <div id="student-homework-list" style="display:flex; flex-direction:column; gap:14px;"></div>
+        </div>
+
+        <div id="s-tab-quizzes" class="hidden">
+          <div id="student-quizzes-list-view">
+            <h2 style="margin-bottom:16px; color:#e0f2fe;">قائمة الاختبارات</h2>
+            <div id="student-quizzes-list" style="display:flex; flex-direction:column; gap:12px;"></div>
+
+            <div class="card" style="margin-top:20px;">
+              <h3 style="margin-bottom:10px; color:#7dd3fc;">إرسال اختبار نصي للمعلم (خاص بك فقط)</h3>
+              <p style="font-size:0.86rem; color:var(--silver-muted); margin-bottom:12px;">
+                اكتب نص الاختبار أو أسئلة ترسلها للمعلم ليراها المعلم لوحده.
+              </p>
+              <form onsubmit="handleStudentSendQuizToTeacher(event)">
+                <div class="input-group">
+                  <label>عنوان / موضوع الاختبار</label>
+                  <input type="text" id="student-custom-quiz-title" class="form-control" required />
+                </div>
+                <div class="input-group">
+                  <label>نص الاختبار أو الأسئلة</label>
+                  <textarea id="student-custom-quiz-text" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">إرسال للمعلم</button>
+              </form>
+              <div id="student-my-sent-quizzes" style="margin-top:14px;"></div>
+            </div>
+          </div>
+
+          <div id="student-active-quiz-view" class="hidden">
+            <div style="margin-bottom:14px;">
+              <button class="btn btn-outline btn-sm" onclick="closeActiveStudentQuiz()">العودة إلى قائمة الاختبارات</button>
+            </div>
+            <div id="student-active-quiz-card" class="card"></div>
+          </div>
+        </div>
+
+        <div id="s-tab-media" class="hidden">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">الفيديوهات والصور</h2>
+          <div id="student-media-list" class="grid-2"></div>
+        </div>
+
+        <div id="s-tab-leaderboard" class="hidden">
+          <div class="card">
+            <h3 style="margin-bottom:14px; color:#e0f2fe;">لوحة المتصدرين في الصف</h3>
+            <div id="student-leaderboard-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+          </div>
+        </div>
+
+        <div id="s-tab-achievements" class="hidden">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">إنجازاتي</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-star"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الدرجة والمستوى</div>
+                <div id="ach-grade-level" style="font-size:1.3rem; font-weight:900; color:#38bdf8;">الدرجة: 0 • المستوى 1</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-quiz"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الاختبارات المكتملة</div>
+                <div id="ach-quizzes-done" style="font-size:1.5rem; font-weight:900; color:#a855f7;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-homework"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">الواجبات المنجزة</div>
+                <div id="ach-hw-done" style="font-size:1.5rem; font-weight:900; color:#34d399;">0</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><svg class="ico"><use href="#icon-analytics"></use></svg></div>
+              <div>
+                <div style="color:var(--silver-muted); font-size:0.84rem; font-weight:700;">درجة الاختبارات</div>
+                <div id="ach-quiz-score" style="font-size:1.5rem; font-weight:900; color:#fbbf24;">0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom:12px; color:#e0f2fe;">سجل درجاتي وتقدمي</h3>
+            <div id="student-achievements-details"></div>
+          </div>
+        </div>
+
+        <div id="s-tab-certificates" class="hidden">
+          <h2 style="margin-bottom:16px; color:#e0f2fe;">شهاداتي</h2>
+          <div id="student-certificates-list" class="grid-2"></div>
+        </div>
+
+        <div id="s-tab-settings" class="hidden">
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="margin-bottom:14px; color:#e0f2fe;">تعديل الاسم والبريد الإلكتروني</h3>
+              <form onsubmit="handleUpdateProfile('student', event)">
+                <div class="input-group">
+                  <label>الاسم</label>
+                  <input type="text" id="s-settings-name" class="form-control" required />
+                </div>
+                <div class="input-group">
+                  <label>البريد الإلكتروني</label>
+                  <input type="email" id="s-settings-email" class="form-control" required />
+                </div>
+                <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-bottom:14px; color:#e0f2fe;">تغيير كلمة المرور وإدارة الجلسة</h3>
+              <form onsubmit="handleChangePassword('student', event)">
+                <div class="input-group">
+                  <label>كلمة المرور الحالية</label>
+                  <input type="password" id="s-current-pass" class="form-control" required />
+                </div>
+                <div class="input-group">
+                  <label>كلمة المرور الجديدة (6 أحرف على الأقل — غير مكررة)</label>
+                  <input type="password" id="s-new-pass" class="form-control" minlength="6" required />
+                </div>
+                <button type="submit" class="btn btn-secondary">تحديث كلمة المرور</button>
+              </form>
+
+              <hr style="margin:20px 0; border:none; border-top:1px solid var(--border);" />
+              <button type="button" class="btn btn-danger" style="width:100%;" onclick="handleLogout()">
+                <svg class="ico"><use href="#icon-logout"></use></svg>
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ==================== CLASS SWITCHER MODAL ==================== -->
+  <div id="class-switcher-modal" class="modal-backdrop hidden">
+    <div class="modal-card" style="max-width:520px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h3 style="color:#e0f2fe;">تغيير الصف ورمز الصف</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeClassSwitcherModal()">إغلاق</button>
+      </div>
+      <div id="class-switcher-body"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TEACHER QUIZ MODAL ==================== -->
+  <div id="quiz-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 id="quiz-modal-title" style="color:#e0f2fe;">إعداد الاختبار</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeQuizModal()">إغلاق</button>
+      </div>
+      <form id="quiz-form" onsubmit="handleSaveQuiz(event)">
+        <input type="hidden" id="edit-quiz-id" />
+        <div class="input-group">
+          <label>اسم الاختبار</label>
+          <input type="text" id="quiz-title" class="form-control" required />
+        </div>
+        <div class="input-group">
+          <label>شرح أو وصف الاختبار</label>
+          <input type="text" id="quiz-desc" class="form-control" />
+        </div>
+
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:14px;">
+          <label style="display:flex; align-items:center; gap:6px; font-weight:700; cursor:pointer;">
+            <input type="checkbox" id="quiz-published" checked /> منشور للطلاب
+          </label>
+        </div>
+
+        <hr style="margin:14px 0; border:none; border-top:1px solid var(--border);" />
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h4 style="color:#e0f2fe;">الأسئلة (كل سؤال صحيح يضيف درجة للطالب)</h4>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="addQuestionBlock()">إضافة سؤال</button>
+        </div>
+        <div id="questions-container" style="display:flex; flex-direction:column; gap:12px;"></div>
+
+        <div style="margin-top:20px; display:flex; gap:10px; justify-content:flex-end;">
+          <button type="button" class="btn btn-outline" onclick="closeQuizModal()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ الاختبار</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCgSHIg20-5w_-4c2kY23qMGEDds3yw2PE",
+      authDomain: "m3lme-3d296.firebaseapp.com",
+      databaseURL: "https://m3lme-3d296-default-rtdb.firebaseio.com",
+      projectId: "m3lme-3d296",
+      storageBucket: "m3lme-3d296.firebasestorage.app",
+      messagingSenderId: "160665106841",
+      appId: "1:160665106841:web:9f7be342813e4261e27b08",
+      measurementId: "G-HN1GNK03F2"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.database();
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+
+    const TEACHER_SECRET_CODE = "123321";
+    const STORAGE_KEYS = {
+      role: "m3lme_saved_role_v2",
+      teacherClassId: "m3lme_teacher_class_v2",
+      studentClassId: "m3lme_student_class_v2",
+      teacherVerifiedUid: "m3lme_teacher_verified_uid_v2"
+    };
+
+    function detectDeviceMode() {
+      const isPhoneUA = /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isNarrow = window.innerWidth <= 768;
+      document.body.classList.toggle('is-mobile', isPhoneUA || isNarrow);
+    }
+    detectDeviceMode();
+    window.addEventListener('resize', detectDeviceMode);
+
+    let authRole = 'teacher';
+    let currentUserProfile = null;
+    let pendingVerifyUser = null;
+    let pendingClassCode = '';
+    let pendingAuthedUser = null;
+
+    let teacherClasses = [];
+    let activeClassId = localStorage.getItem(STORAGE_KEYS.teacherClassId) || null;
+    let excludedStudentIds = [];
+    let wheelAngle = 0;
+    let isSpinning = false;
+    let lastSelectedStudent = null;
+    let teacherChatRef = null;
+    let teacherClassesRef = null;
+
+    let studentClassData = null;
+    let studentClassId = localStorage.getItem(STORAGE_KEYS.studentClassId) || null;
+    let studentChatRef = null;
+    let studentClassListenerRef = null;
+    let openedQuizId = null;
+
+    // توحيد "الدرجة": الدرجة هي القيمة الموحدة (تبدأ من 0، يزيدها المعلم +/- أو يزيدها الطالب بحل الاختبارات)
+    function getLevelFromGrade(grade = 0) {
+      return Math.max(1, Math.floor((Number(grade) || 0) / 5) + 1);
+    }
+
+    function showLoader(show = true) {
+      document.getElementById('global-loader').classList.toggle('hidden', !show);
+    }
+
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const div = document.createElement('div');
+      div.className = `toast toast-${type}`;
+      div.textContent = msg;
+      container.appendChild(div);
+      setTimeout(() => div.remove(), 4200);
+    }
+
+    function hideAllViews() {
+      ['view-welcome', 'view-auth', 'view-teacher-dash', 'view-student-dash']
+        .forEach(id => document.getElementById(id).classList.add('hidden'));
+    }
+
+    function goHome() {
+      hideAllViews();
+      document.getElementById('view-welcome').classList.remove('hidden');
+    }
+
+    function applyAuthRoleUI(role) {
+      authRole = role;
+      const isStudent = role === 'student';
+      document.getElementById('auth-role-badge').textContent = isStudent ? 'بوابة الطالب' : 'بوابة المعلم';
+      document.getElementById('auth-role-badge').className = `badge ${isStudent ? 'badge-purple' : 'badge-blue'}`;
+      document.getElementById('login-student-code-group').classList.toggle('hidden', !isStudent);
+      document.getElementById('reg-student-code-group').classList.toggle('hidden', !isStudent);
+      document.getElementById('login-class-code').required = isStudent;
+      document.getElementById('reg-class-code').required = isStudent;
+      document.getElementById('reg-name-label').textContent = isStudent ? 'اسم الطالب' : 'الاسم الكامل للمعلم';
+      document.getElementById('auth-forms-container').classList.remove('hidden');
+      document.getElementById('teacher-code-box').classList.add('hidden');
+    }
+
+    function openRoleAuth(role) {
+      applyAuthRoleUI(role);
+      hideAllViews();
+      document.getElementById('view-auth').classList.remove('hidden');
+    }
+
+    function switchAuthTab(tab) {
+      const isLogin = tab === 'login';
+      document.getElementById('tab-login').classList.toggle('active', isLogin);
+      document.getElementById('tab-register').classList.toggle('active', !isLogin);
+      document.getElementById('form-login').classList.toggle('hidden', !isLogin);
+      document.getElementById('form-register').classList.toggle('hidden', isLogin);
+      document.getElementById('login-class-code').required = isLogin && authRole === 'student';
+      document.getElementById('reg-class-code').required = !isLogin && authRole === 'student';
+    }
+
+    function escapeHtml(str = '') {
+      return String(str).replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
+    }
+
+    function isValidEmailFormat(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    }
+
+    function encodeEmailKey(email) {
+      return email.toLowerCase().trim().replace(/\./g, '_dot_').replace(/@/g, '_at_');
+    }
+
+    async function hashPassword(password) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function safeDbGet(path) {
+      try {
+        return await db.ref(path).get();
+      } catch (e) {
+        return null;
+      }
+    }
+
+    async function safeDbSet(path, value) {
+      try {
+        await db.ref(path).set(value);
+      } catch (e) {}
+    }
+
+    function cleanupBackgroundListeners() {
+      if (teacherChatRef) { teacherChatRef.off(); teacherChatRef = null; }
+      if (teacherClassesRef) { teacherClassesRef.off(); teacherClassesRef = null; }
+      if (studentChatRef) { studentChatRef.off(); studentChatRef = null; }
+      if (studentClassListenerRef) { studentClassListenerRef.off(); studentClassListenerRef = null; }
+    }
+
+    // ==================== AUTO-RESUME SAVED SESSION ====================
+    let autoResumeHandled = false;
+    auth.onAuthStateChanged(async (user) => {
+      if (autoResumeHandled) return;
+      if (!user) {
+        autoResumeHandled = true;
+        return;
+      }
+      autoResumeHandled = true;
+
+      try {
+        await user.reload();
+        if (!user.emailVerified) return;
+
+        const savedRole = localStorage.getItem(STORAGE_KEYS.role);
+        const tSnap = await safeDbGet(`teachers/${user.uid}`);
+        const sSnap = await safeDbGet(`students/${user.uid}`);
+
+        if ((savedRole === 'teacher' || (tSnap && tSnap.exists())) && localStorage.getItem(STORAGE_KEYS.teacherVerifiedUid) === user.uid) {
+          localStorage.setItem(STORAGE_KEYS.role, 'teacher');
+          await loadTeacherDashboard(user, tSnap && tSnap.exists() ? tSnap.val() : null, true);
+          return;
+        }
+
+        if (savedRole === 'student' || (sSnap && sSnap.exists())) {
+          const sVal = sSnap && sSnap.exists() ? sSnap.val() : null;
+          const savedCid = localStorage.getItem(STORAGE_KEYS.studentClassId) || sVal?.classId || '';
+          if (savedCid) {
+            localStorage.setItem(STORAGE_KEYS.role, 'student');
+            await loadStudentDashboard(user, sVal, '', savedCid);
+          }
+        }
+      } catch (e) {}
+    });
+
+    // ==================== AUTH, EMAIL ROLE LOCK & UNIQUE PASSWORD ====================
+    async function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim().toLowerCase();
+      const password = document.getElementById('reg-password').value;
+      const classCode = authRole === 'student' ? document.getElementById('reg-class-code').value.trim().toUpperCase() : '';
+
+      if (!isValidEmailFormat(email)) {
+        return showToast('يرجى إدخال بريد إلكتروني صحيح ومكتمل', 'error');
+      }
+
+      showLoader(true);
+      try {
+        const emailKey = encodeEmailKey(email);
+        const usedEmailSnap = await safeDbGet(`usedEmails/${emailKey}`);
+        if (usedEmailSnap && usedEmailSnap.exists()) {
+          const existingRole = usedEmailSnap.val().role;
+          if (existingRole && existingRole !== authRole) {
+            return showToast(
+              existingRole === 'student'
+                ? 'تحذير: هذا البريد الإلكتروني مستخدم لطالب ولا يمكن استخدامه كمعلم'
+                : 'تحذير: هذا البريد الإلكتروني مستخدم لمعلم ولا يمكن استخدامه كطالب',
+              'error'
+            );
+          }
+          return showToast('هذا البريد الإلكتروني مستخدم مسبقاً', 'error');
+        }
+
+        const passHash = await hashPassword(password);
+        const passSnap = await safeDbGet(`usedPasswords/${passHash}`);
+        if (passSnap && passSnap.exists()) {
+          return showToast('ممنوع تكرار كلمات المرور، يرجى اختيار كلمة مرور جديدة غير مستخدمة', 'error');
+        }
+
+        let targetStudentClass = null;
+        if (authRole === 'student') {
+          const cSnap = await db.ref('classes').orderByChild('code').equalTo(classCode).get();
+          if (!cSnap.exists()) {
+            return showToast('رمز الصف غير صحيح', 'error');
+          }
+          const [cid, cVal] = Object.entries(cSnap.val())[0];
+          targetStudentClass = { cid, cVal };
+        }
+
+        const cred = await auth.createUserWithEmailAndPassword(email, password);
+        await cred.user.updateProfile({ displayName: name });
+
+        await safeDbSet(`usedEmails/${emailKey}`, { role: authRole, email, createdAt: Date.now() });
+        await safeDbSet(`usedPasswords/${passHash}`, { createdAt: Date.now() });
+
+        if (authRole === 'teacher') {
+          await db.ref(`teachers/${cred.user.uid}`).set({
+            uid: cred.user.uid, role: 'teacher', name, email, createdAt: Date.now()
+          });
+        } else if (targetStudentClass) {
+          const { cid, cVal } = targetStudentClass;
+          await db.ref(`students/${cred.user.uid}`).set({
+            uid: cred.user.uid, role: 'student', name, email,
+            classId: cid, classCode: cVal.code, grade: 0, createdAt: Date.now()
+          });
+          await db.ref(`classes/${cid}/students/${cred.user.uid}`).set({
+            uid: cred.user.uid, name, email, grade: 0, joinedAt: Date.now()
+          });
+          pendingClassCode = classCode;
+          localStorage.setItem(STORAGE_KEYS.studentClassId, cid);
+        }
+
+        await cred.user.sendEmailVerification();
+        pendingVerifyUser = cred.user;
+        document.getElementById('verify-email-box').classList.remove('hidden');
+        showToast('تم إنشاء الحساب وإرسال رابط التحقق إلى بريدك الإلكتروني', 'info');
+      } catch (err) {
+        let msg = 'تعذر إنشاء الحساب: ' + err.message;
+        if (err.code === 'auth/email-already-in-use') msg = 'هذا البريد الإلكتروني مسجل مسبقاً';
+        if (err.code === 'auth/invalid-email') msg = 'صيغة البريد الإلكتروني غير صحيحة';
+        if (err.code === 'auth/weak-password') msg = 'كلمة المرور ضعيفة، استخدم 6 أحرف أو أكثر';
+        showToast(msg, 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function resendVerificationLink() {
+      const targetUser = auth.currentUser || pendingVerifyUser;
+      if (!targetUser) return showToast('سجّل الدخول أو أنشئ الحساب أولاً', 'error');
+      showLoader(true);
+      try {
+        await targetUser.sendEmailVerification();
+        showToast('تمت إعادة إرسال رابط التحقق', 'success');
+      } catch (err) {
+        showToast('انتظر قليلاً قبل إعادة الإرسال', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function checkEmailVerifiedAndProceed() {
+      const targetUser = auth.currentUser || pendingVerifyUser;
+      if (!targetUser) return showToast('يرجى تسجيل الدخول أولاً', 'error');
+      showLoader(true);
+      try {
+        await targetUser.reload();
+        if (targetUser.emailVerified) {
+          document.getElementById('verify-email-box').classList.add('hidden');
+          const code = pendingClassCode || document.getElementById('reg-class-code').value.trim().toUpperCase();
+          await routeAuthenticatedUser(targetUser, authRole, code);
+        } else {
+          showToast('لم يتم تأكيد البريد الإلكتروني بعد. تحقق من بريدك واضغط على الرابط.', 'error');
+        }
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim().toLowerCase();
+      const password = document.getElementById('login-password').value;
+      const classCode = authRole === 'student' ? document.getElementById('login-class-code').value.trim().toUpperCase() : '';
+
+      if (!isValidEmailFormat(email)) {
+        return showToast('يرجى إدخال بريد إلكتروني صحيح', 'error');
+      }
+
+      showLoader(true);
+      try {
+        const emailKey = encodeEmailKey(email);
+        const usedEmailSnap = await safeDbGet(`usedEmails/${emailKey}`);
+        if (usedEmailSnap && usedEmailSnap.exists()) {
+          const existingRole = usedEmailSnap.val().role;
+          if (existingRole && existingRole !== authRole) {
+            return showToast(
+              existingRole === 'student'
+                ? 'تحذير: هذا الإيميل مستخدم لطالب ولا يمكن الدخول به كمعلم'
+                : 'تحذير: هذا الإيميل مستخدم لمعلم ولا يمكن الدخول به كطالب',
+              'error'
+            );
+          }
+        }
+
+        const cred = await auth.signInWithEmailAndPassword(email, password);
+        await cred.user.reload();
+        if (!cred.user.emailVerified) {
+          pendingVerifyUser = cred.user;
+          pendingClassCode = classCode;
+          document.getElementById('verify-email-box').classList.remove('hidden');
+          showToast('يجب تأكيد بريدك الإلكتروني قبل الدخول إلى المنصة', 'error');
+          return;
+        }
+        document.getElementById('verify-email-box').classList.add('hidden');
+        await routeAuthenticatedUser(cred.user, authRole, classCode);
+      } catch (err) {
+        showToast('البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function routeAuthenticatedUser(user, preferredRole, classCode = '') {
+      const emailKey = encodeEmailKey(user.email || '');
+      const usedSnap = await safeDbGet(`usedEmails/${emailKey}`);
+      if (usedSnap && usedSnap.exists() && usedSnap.val().role && usedSnap.val().role !== preferredRole) {
+        await auth.signOut();
+        return showToast(
+          usedSnap.val().role === 'student'
+            ? 'تحذير: هذا الإيميل مستخدم لطالب ولا يمكن استخدامه كمعلم'
+            : 'تحذير: هذا الإيميل مستخدم لمعلم ولا يمكن استخدامه كطالب',
+          'error'
+        );
+      }
+
+      if (preferredRole === 'teacher') {
+        localStorage.setItem(STORAGE_KEYS.role, 'teacher');
+        if (localStorage.getItem(STORAGE_KEYS.teacherVerifiedUid) === user.uid) {
+          const tSnap = await safeDbGet(`teachers/${user.uid}`);
+          await loadTeacherDashboard(user, tSnap && tSnap.exists() ? tSnap.val() : null, true);
+          return;
+        }
+        pendingAuthedUser = user;
+        document.getElementById('auth-forms-container').classList.add('hidden');
+        document.getElementById('teacher-code-box').classList.remove('hidden');
+        document.getElementById('teacher-secret-input').value = '';
+        return;
+      }
+
+      localStorage.setItem(STORAGE_KEYS.role, 'student');
+      const sSnap = await safeDbGet(`students/${user.uid}`);
+      await loadStudentDashboard(user, sSnap && sSnap.exists() ? sSnap.val() : null, classCode);
+    }
+
+    async function handleVerifyTeacherCode(e) {
+      e.preventDefault();
+      const enteredCode = document.getElementById('teacher-secret-input').value.trim();
+      if (enteredCode !== TEACHER_SECRET_CODE) {
+        return showToast('رمز المعلمين غير صحيح', 'error');
+      }
+      const user = pendingAuthedUser || auth.currentUser;
+      if (!user) return showToast('يرجى تسجيل الدخول أولاً', 'error');
+
+      localStorage.setItem(STORAGE_KEYS.teacherVerifiedUid, user.uid);
+      localStorage.setItem(STORAGE_KEYS.role, 'teacher');
+
+      const tSnap = await safeDbGet(`teachers/${user.uid}`);
+      await loadTeacherDashboard(user, tSnap && tSnap.exists() ? tSnap.val() : null, true);
+    }
+
+    async function handleLogout() {
+      cleanupBackgroundListeners();
+      localStorage.removeItem(STORAGE_KEYS.role);
+      localStorage.removeItem(STORAGE_KEYS.teacherClassId);
+      localStorage.removeItem(STORAGE_KEYS.studentClassId);
+      localStorage.removeItem(STORAGE_KEYS.teacherVerifiedUid);
+      await auth.signOut();
+      currentUserProfile = null;
+      pendingVerifyUser = null;
+      pendingAuthedUser = null;
+      pendingClassCode = '';
+      teacherClasses = [];
+      activeClassId = null;
+      studentClassData = null;
+      studentClassId = null;
+      showToast('تم تسجيل الخروج', 'info');
+      goHome();
+    }
+
+    // ==================== PROFILE & UNIQUE PASSWORD ====================
+    async function handleUpdateProfile(role, e) {
+      e.preventDefault();
+      const prefix = role === 'teacher' ? 't' : 's';
+      const name = document.getElementById(`${prefix}-settings-name`).value.trim();
+      const email = document.getElementById(`${prefix}-settings-email`).value.trim().toLowerCase();
+      if (!name || !email || !isValidEmailFormat(email)) return showToast('تحقق من البيانات', 'error');
+
+      showLoader(true);
+      try {
+        const user = auth.currentUser;
+        if (email !== user.email) {
+          const emailKey = encodeEmailKey(email);
+          const usedSnap = await safeDbGet(`usedEmails/${emailKey}`);
+          if (usedSnap && usedSnap.exists() && usedSnap.val().role !== role) {
+            return showToast('تحذير: هذا الإيميل مستخدم لدور آخر ولا يمكن استخدامه', 'error');
+          }
+          await user.verifyBeforeUpdateEmail(email);
+          await safeDbSet(`usedEmails/${emailKey}`, { role, email, updatedAt: Date.now() });
+        }
+
+        await user.updateProfile({ displayName: name });
+        await db.ref(`${role === 'teacher' ? 'teachers' : 'students'}/${user.uid}`).update({ name, email });
+
+        if (role === 'teacher') {
+          currentUserProfile.name = name;
+          currentUserProfile.email = email;
+          document.getElementById('topbar-teacher-name').textContent = name;
+          document.getElementById('welcome-teacher-name').textContent = name;
+          const snap = await db.ref('classes').orderByChild('teacherId').equalTo(user.uid).get();
+          if (snap.exists()) {
+            const updates = {};
+            Object.keys(snap.val()).forEach(cid => { updates[`classes/${cid}/teacherName`] = name; });
+            await db.ref().update(updates);
+          }
+        } else {
+          currentUserProfile.name = name;
+          currentUserProfile.email = email;
+          document.getElementById('student-header-name').textContent = name;
+          if (studentClassId) {
+            await db.ref(`classes/${studentClassId}/students/${user.uid}`).update({ name, email });
+          }
+        }
+        showToast('تم حفظ التعديلات بنجاح', 'success');
+      } catch (err) {
+        showToast('تعذر التحديث: ' + err.message, 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function handleChangePassword(role, e) {
+      e.preventDefault();
+      const prefix = role === 'teacher' ? 't' : 's';
+      const curr = document.getElementById(`${prefix}-current-pass`).value;
+      const next = document.getElementById(`${prefix}-new-pass`).value;
+
+      showLoader(true);
+      try {
+        const passHash = await hashPassword(next);
+        const passSnap = await safeDbGet(`usedPasswords/${passHash}`);
+        if (passSnap && passSnap.exists()) {
+          return showToast('ممنوع تكرار كلمات المرور، اختر كلمة مرور جديدة لم تُستخدم من قبل', 'error');
+        }
+
+        const user = auth.currentUser;
+        const cred = firebase.auth.EmailAuthProvider.credential(user.email, curr);
+        await user.reauthenticateWithCredential(cred);
+        await user.updatePassword(next);
+        await safeDbSet(`usedPasswords/${passHash}`, { createdAt: Date.now() });
+        e.target.reset();
+        showToast('تم تغيير كلمة المرور بنجاح', 'success');
+      } catch (err) {
+        showToast('كلمة المرور الحالية غير صحيحة', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    // ==================== CLASS SWITCHER MODAL ====================
+    function closeClassSwitcherModal() {
+      document.getElementById('class-switcher-modal').classList.add('hidden');
+    }
+
+    async function openClassSwitcherModal(mode) {
+      const body = document.getElementById('class-switcher-body');
+      if (mode === 'teacher') {
+        if (teacherClasses.length === 0) {
+          body.innerHTML = '<p style="color:var(--silver-muted);">لا توجد صفوف بعد. أنشئ صفاً من تبويب الصفوف.</p>';
+        } else {
+          body.innerHTML = teacherClasses.map(c => `
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding:12px; border-radius:12px; background:#0b172c; border:1px solid ${c.id === activeClassId ? 'var(--neon-blue)' : 'var(--border)'}; margin-bottom:10px;">
+              <div>
+                <strong style="color:#e0f2fe;">${escapeHtml(c.name)}</strong>
+                <div style="font-size:0.84rem; color:#7dd3fc;">رمز الصف: <strong>${escapeHtml(c.code)}</strong></div>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button class="btn btn-outline btn-sm" onclick="copyCode('${c.code}')">نسخ</button>
+                <button class="btn btn-primary btn-sm" onclick="selectTeacherClassFromModal('${c.id}')">اختيار الصف</button>
+              </div>
+            </div>
+          `).join('');
+        }
+      } else {
+        const snap = await db.ref('classes').get();
+        const allClasses = Object.entries(snap.val() || {}).map(([id, c]) => ({ id, ...c }));
+        body.innerHTML = `
+          <p style="font-size:0.88rem; color:var(--silver-muted); margin-bottom:12px;">
+            الصف الحالي: <strong style="color:#7dd3fc;">${escapeHtml(studentClassData?.name || '')}</strong> (الرمز: <strong>${escapeHtml(studentClassData?.code || '')}</strong>)
+          </p>
+          <form onsubmit="handleStudentSwitchClassByCode(event)">
+            <div class="input-group">
+              <label>أدخل رمز الصف الجديد للانتقال إليه</label>
+              <input type="text" id="switch-student-code-input" class="form-control" style="text-align:center; font-size:1.15rem; letter-spacing:3px; font-weight:800;" required />
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">تغيير الصف</button>
+          </form>
+          ${allClasses.length > 0 ? `<div style="margin-top:12px; font-size:0.8rem; color:var(--silver-muted);">الرموز المتاحة: ${allClasses.map(x => `${escapeHtml(x.name)} (${escapeHtml(x.code)})`).join(' • ')}</div>` : ''}
+        `;
+      }
+      document.getElementById('class-switcher-modal').classList.remove('hidden');
+    }
+
+    function selectTeacherClassFromModal(classId) {
+      activeClassId = classId;
+      localStorage.setItem(STORAGE_KEYS.teacherClassId, classId);
+      excludedStudentIds = [];
+      closeClassSwitcherModal();
+      renderAllTeacherViews();
+      if (!document.getElementById('t-tab-chat').classList.contains('hidden')) subscribeTeacherChat();
+      if (!document.getElementById('t-tab-certificates').classList.contains('hidden')) populateCertStudents();
+      showToast('تم تغيير الصف النشط', 'success');
+    }
+
+    async function handleStudentSwitchClassByCode(e) {
+      e.preventDefault();
+      const code = document.getElementById('switch-student-code-input').value.trim().toUpperCase();
+      const cSnap = await db.ref('classes').orderByChild('code').equalTo(code).get();
+      if (!cSnap.exists()) return showToast('رمز الصف غير صحيح', 'error');
+
+      const [newCid, newCVal] = Object.entries(cSnap.val())[0];
+      const user = auth.currentUser;
+      if (!user) return;
+
+      showLoader(true);
+      try {
+        const myOldData = studentClassData?.students?.[user.uid] || {};
+        const currentGrade = Number(myOldData.grade ?? myOldData.points ?? 0);
+        await db.ref(`students/${user.uid}`).update({ classId: newCid, classCode: newCVal.code, grade: currentGrade });
+        await db.ref(`classes/${newCid}/students/${user.uid}`).set({
+          uid: user.uid,
+          name: currentUserProfile.name,
+          email: currentUserProfile.email,
+          grade: currentGrade,
+          joinedAt: Date.now()
+        });
+
+        localStorage.setItem(STORAGE_KEYS.studentClassId, newCid);
+        closeClassSwitcherModal();
+        await loadStudentDashboard(user, {
+          uid: user.uid,
+          name: currentUserProfile.name,
+          email: currentUserProfile.email,
+          classId: newCid,
+          classCode: newCVal.code,
+          grade: currentGrade
+        }, code, newCid);
+        showToast(`تم الانتقال إلى صف: ${newCVal.name}`, 'success');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    // ==================== TEACHER DASHBOARD ====================
+    async function loadTeacherDashboard(user, existingProfile, autoEnterClass = false) {
+      showLoader(true);
+      try {
+        let profile = existingProfile || {
+          uid: user.uid, role: 'teacher', name: user.displayName || user.email.split('@')[0], email: user.email, createdAt: Date.now()
+        };
+        if (!existingProfile) await db.ref(`teachers/${user.uid}`).set(profile);
+        await safeDbSet(`usedEmails/${encodeEmailKey(user.email)}`, { role: 'teacher', email: user.email, updatedAt: Date.now() });
+
+        currentUserProfile = { uid: user.uid, name: profile.name, email: profile.email };
+
+        document.getElementById('topbar-teacher-name').textContent = currentUserProfile.name;
+        document.getElementById('welcome-teacher-name').textContent = currentUserProfile.name;
+        document.getElementById('t-settings-name').value = currentUserProfile.name;
+        document.getElementById('t-settings-email').value = currentUserProfile.email;
+
+        if (teacherClassesRef) teacherClassesRef.off();
+        teacherClassesRef = db.ref('classes').orderByChild('teacherId').equalTo(user.uid);
+        teacherClassesRef.on('value', snapshot => {
+          const val = snapshot.val() || {};
+          teacherClasses = Object.entries(val).map(([id, data]) => ({ id, ...data }));
+          const savedClassId = localStorage.getItem(STORAGE_KEYS.teacherClassId);
+          if (!activeClassId && savedClassId && teacherClasses.some(c => c.id === savedClassId)) {
+            activeClassId = savedClassId;
+          } else if (!activeClassId && teacherClasses.length > 0) {
+            activeClassId = teacherClasses[0].id;
+          } else if (activeClassId && !teacherClasses.some(c => c.id === activeClassId)) {
+            activeClassId = teacherClasses[0]?.id || null;
+          }
+          if (activeClassId) localStorage.setItem(STORAGE_KEYS.teacherClassId, activeClassId);
+          renderAllTeacherViews();
+        });
+
+        hideAllViews();
+        document.getElementById('view-teacher-dash').classList.remove('hidden');
+
+        if (autoEnterClass && activeClassId) {
+          switchTeacherTab('analytics');
+        }
+      } catch (err) {
+        showToast('خطأ في تحميل بيانات المعلم', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function switchTeacherTab(tabName) {
+      const cls = getActiveClass();
+      const classTabs = ['analytics', 'students', 'homework', 'leaderboard', 'wheel', 'quizzes', 'media', 'chat', 'certificates'];
+      if (classTabs.includes(tabName) && !cls) {
+        showToast('أنشئ أو اختر صفاً أولاً للوصول إلى أدوات الصف ومنح الشهادات', 'info');
+        tabName = 'classes';
+      }
+
+      document.querySelectorAll('#view-teacher-dash .nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+      });
+
+      ['overview', 'classes', 'analytics', 'students', 'homework', 'leaderboard', 'wheel', 'quizzes', 'media', 'chat', 'certificates', 'settings']
+        .forEach(t => document.getElementById(`t-tab-${t}`).classList.toggle('hidden', t !== tabName));
+
+      if (tabName === 'wheel') drawWheel();
+      if (tabName === 'chat') subscribeTeacherChat();
+      if (tabName === 'certificates') populateCertStudents();
+    }
+
+    function enterSpecificClass(classId, targetTab = 'analytics') {
+      activeClassId = classId;
+      localStorage.setItem(STORAGE_KEYS.teacherClassId, classId);
+      excludedStudentIds = [];
+      renderAllTeacherViews();
+      switchTeacherTab(targetTab);
+    }
+
+    function getActiveClass() {
+      return teacherClasses.find(c => c.id === activeClassId) || null;
+    }
+
+    // قراءة الدرجة الموحدة للطالب (يدعم grade أو أي قيمة قديمة points كدرجة موحدة)
+    function getStudentGradeValue(s = {}) {
+      if (typeof s.grade === 'number') return Number(s.grade);
+      if (s.grade !== undefined && s.grade !== null && s.grade !== '') return Number(s.grade) || 0;
+      return Number(s.points || 0) || 0;
+    }
+
+    function computeClassStudentStats(cls) {
+      const studentsMap = cls.students || {};
+      const quizzes = Object.values(cls.quizzes || {});
+      const homeworks = Object.values(cls.assignments || {});
+
+      return Object.entries(studentsMap).map(([uid, s]) => {
+        const grade = getStudentGradeValue(s);
+        let quizScore = 0, quizMax = 0, quizzesDone = 0;
+        quizzes.forEach(q => {
+          const qTotal = (q.questions || []).length || 0;
+          const sub = q.submissions && q.submissions[uid];
+          if (sub) {
+            quizzesDone += 1;
+            quizScore += Number(sub.score || 0);
+            quizMax += Number(sub.total || qTotal);
+          }
+        });
+
+        let hwDone = 0;
+        homeworks.forEach(hw => {
+          if (hw.submissions && hw.submissions[uid]) hwDone += 1;
+        });
+
+        const level = getLevelFromGrade(grade);
+        const quizRatio = quizMax > 0 ? quizScore / quizMax : 0;
+        return { uid, name: s.name || 'طالب', email: s.email || '', grade, level, quizScore, quizMax, quizRatio, quizzesDone, hwDone };
+      });
+    }
+
+    function renderAllTeacherViews() {
+      let totalStudents = 0, totalQuizzes = 0, totalHw = 0;
+      teacherClasses.forEach(c => {
+        totalStudents += Object.keys(c.students || {}).length;
+        totalQuizzes += Object.keys(c.quizzes || {}).length;
+        totalHw += Object.keys(c.assignments || {}).length;
+      });
+
+      document.getElementById('stat-classes-count').textContent = teacherClasses.length;
+      document.getElementById('stat-students-count').textContent = totalStudents;
+      document.getElementById('stat-quizzes-count').textContent = totalQuizzes;
+      document.getElementById('stat-homework-count').textContent = totalHw;
+
+      const cls = getActiveClass();
+      const sidebarClassGroup = document.getElementById('sidebar-class-group');
+      const sidebarClassLabel = document.getElementById('sidebar-class-label');
+      const topBadge = document.getElementById('topbar-active-class-badge');
+      const switchBtn = document.getElementById('teacher-change-class-btn');
+
+      if (cls) {
+        sidebarClassGroup.classList.remove('hidden');
+        sidebarClassLabel.textContent = `صف: ${cls.name}`;
+        topBadge.textContent = `${cls.name} (${cls.code})`;
+        switchBtn.classList.remove('hidden');
+      } else {
+        sidebarClassGroup.classList.add('hidden');
+        topBadge.textContent = '';
+        switchBtn.classList.add('hidden');
+      }
+
+      renderOverviewClasses();
+      renderClassesGrid();
+      renderAnalyticsTab();
+      renderStudentsTab();
+      renderTeacherHomework();
+      renderTeacherLeaderboard();
+      renderQuizzesTab();
+      renderTeacherSentQuizzes();
+      renderMediaTab();
+      renderTeacherCertificates();
+      populateCertStudents();
+      drawWheel();
+    }
+
+    function generateVariedClassCode() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let code = '';
+      for (let i = 0; i < 6; i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
+      return code;
+    }
+
+    async function openAddClassModal() {
+      const name = prompt('أدخل اسم الصف الجديد:');
+      if (!name || !name.trim()) return;
+      showLoader(true);
+      try {
+        let code = generateVariedClassCode();
+        const existingSnap = await db.ref('classes').orderByChild('code').equalTo(code).get();
+        if (existingSnap.exists()) code = generateVariedClassCode();
+
+        const newRef = db.ref('classes').push();
+        await newRef.set({
+          teacherId: currentUserProfile.uid,
+          teacherName: currentUserProfile.name,
+          name: name.trim(),
+          code,
+          leaderboardHidden: false,
+          createdAt: Date.now()
+        });
+        activeClassId = newRef.key;
+        localStorage.setItem(STORAGE_KEYS.teacherClassId, activeClassId);
+        showToast(`تم إنشاء الصف ورمزه المتنوع: ${code}`, 'success');
+      } catch (err) {
+        showToast('تعذر إنشاء الصف', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function renameClass(classId, currentName) {
+      const nextName = prompt('تعديل اسم الصف:', currentName);
+      if (!nextName || !nextName.trim()) return;
+      await db.ref(`classes/${classId}/name`).set(nextName.trim());
+      showToast('تم تعديل اسم الصف', 'success');
+    }
+
+    async function regenerateClassCode(classId) {
+      const newCode = generateVariedClassCode();
+      await db.ref(`classes/${classId}/code`).set(newCode);
+      showToast(`تم توليد رمز متنوع جديد: ${newCode}`, 'success');
+    }
+
+    async function deleteClass(classId) {
+      if (!confirm('حذف هذا الصف نهائياً؟')) return;
+      await db.ref(`classes/${classId}`).remove();
+      showToast('تم حذف الصف', 'info');
+    }
+
+    function copyCode(code) {
+      navigator.clipboard.writeText(code);
+      showToast(`تم نسخ الرمز: ${code}`, 'success');
+    }
+
+    function renderOverviewClasses() {
+      const box = document.getElementById('overview-classes-list');
+      if (teacherClasses.length === 0) {
+        box.innerHTML = '<p style="color:var(--silver-muted);">لم يتم إنشاء صفوف بعد.</p>';
+        return;
+      }
+      box.innerHTML = teacherClasses.map(c => {
+        const sCount = Object.keys(c.students || {}).length;
+        return `
+          <div class="card" style="background:#0d192f;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h4 style="font-size:1.08rem; color:#e0f2fe;">${escapeHtml(c.name)}</h4>
+              <span class="badge badge-blue">${sCount} طالب</span>
+            </div>
+            <div class="class-code-box">
+              <strong class="code-num">${c.code}</strong>
+              <div class="code-actions">
+                <button class="btn btn-outline btn-sm" onclick="copyCode('${c.code}')">نسخ</button>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="enterSpecificClass('${c.id}', 'analytics')">دخول إلى الصف</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderClassesGrid() {
+      const grid = document.getElementById('classes-grid');
+      if (teacherClasses.length === 0) {
+        grid.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد صفوف حالياً.</p></div>';
+        return;
+      }
+      grid.innerHTML = teacherClasses.map(c => {
+        const sCount = Object.keys(c.students || {}).length;
+        const qCount = Object.keys(c.quizzes || {}).length;
+        return `
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h3 style="color:#e0f2fe;">${escapeHtml(c.name)}</h3>
+              <div style="display:flex; gap:6px;">
+                <span class="badge badge-purple">${sCount} طالب</span>
+                <span class="badge badge-blue">${qCount} اختبار</span>
+              </div>
+            </div>
+            <div class="class-code-box">
+              <span class="code-num">${c.code}</span>
+              <div class="code-actions">
+                <button class="btn btn-outline btn-sm" onclick="copyCode('${c.code}')">نسخ</button>
+                <button class="btn btn-outline btn-sm" onclick="regenerateClassCode('${c.id}')">تغيير</button>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+              <button class="btn btn-primary btn-sm" onclick="enterSpecificClass('${c.id}', 'analytics')">دخول الصف</button>
+              <button class="btn btn-outline btn-sm" onclick="renameClass('${c.id}', '${escapeHtml(c.name).replace(/'/g, "\\'")}')">تعديل الاسم</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteClass('${c.id}')">حذف</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function focusAnalyticsGroup(group) {
+      const topPanel = document.getElementById('an-top-panel');
+      const helpPanel = document.getElementById('an-help-panel');
+      const topCard = document.getElementById('stat-card-top');
+      const helpCard = document.getElementById('stat-card-help');
+
+      topCard.classList.toggle('active-filter', group === 'top');
+      helpCard.classList.toggle('active-filter', group === 'help');
+
+      topPanel.classList.toggle('hidden', group === 'help');
+      helpPanel.classList.toggle('hidden', group === 'top');
+
+      const target = group === 'top' ? topPanel : helpPanel;
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function renderAnalyticsTab() {
+      const cls = getActiveClass();
+      if (!cls) return;
+      const stats = computeClassStudentStats(cls);
+      const quizzes = Object.values(cls.quizzes || {}).filter(q => q.published);
+
+      const avgGrade = stats.length === 0
+        ? 0
+        : (stats.reduce((sum, st) => sum + st.grade, 0) / stats.length).toFixed(1);
+
+      const totalPossibleSubs = stats.length * quizzes.length;
+      const actualSubs = stats.reduce((sum, st) => sum + st.quizzesDone, 0);
+      const completionPct = totalPossibleSubs > 0 ? Math.round((actualSubs / totalPossibleSubs) * 100) : 0;
+
+      const topStudents = stats.filter(s => s.grade >= 5 || (s.quizzesDone > 0 && s.quizRatio >= 0.7)).sort((a, b) => b.grade - a.grade);
+      const helpStudents = stats.filter(s => s.grade < 3 && (s.quizzesDone === 0 || s.quizRatio < 0.5)).sort((a, b) => a.grade - b.grade);
+
+      document.getElementById('an-avg-grade').textContent = `${avgGrade}`;
+      document.getElementById('an-quiz-completion').textContent = `${completionPct}%`;
+      document.getElementById('an-top-count').textContent = topStudents.length;
+      document.getElementById('an-help-count').textContent = helpStudents.length;
+
+      document.getElementById('an-top-students').innerHTML = topStudents.length === 0
+        ? '<p style="color:var(--silver-muted);">لا يوجد طلاب متفوقون بعد.</p>'
+        : topStudents.map(s => `<div style="padding:8px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;"><strong>${escapeHtml(s.name)}</strong><span class="badge badge-success">الدرجة: ${s.grade}</span></div>`).join('');
+
+      document.getElementById('an-help-students').innerHTML = helpStudents.length === 0
+        ? '<p style="color:var(--silver-muted);">لا يوجد طلاب يحتاجون مساعدة حالياً.</p>'
+        : helpStudents.map(s => `<div style="padding:8px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;"><strong>${escapeHtml(s.name)}</strong><span class="badge badge-danger">الدرجة: ${s.grade}</span></div>`).join('');
+    }
+
+    function renderStudentsTab() {
+      const cls = getActiveClass();
+      const listEl = document.getElementById('students-list');
+      const badgeEl = document.getElementById('students-total-badge');
+      if (!cls) return;
+
+      const students = computeClassStudentStats(cls);
+      badgeEl.textContent = students.length;
+
+      if (students.length === 0) {
+        listEl.innerHTML = '<p style="color:var(--silver-muted);">لم يدخل أي طالب إلى هذا الصف بعد.</p>';
+        return;
+      }
+
+      listEl.innerHTML = students.map((s, idx) => `
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding:12px 14px; border-bottom:1px solid var(--border);">
+          <div>
+            <strong style="color:#e0f2fe;">${idx + 1}. ${escapeHtml(s.name)}</strong>
+            <div style="margin-top:4px; display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="badge badge-blue">الدرجة: ${s.grade}</span>
+              <span class="badge badge-purple">المستوى ${s.level}</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="btn-step" title="إضافة درجة" onclick="adjustStudentGrade('${s.uid}', 1)">+</button>
+            <button class="btn-step" title="خصم درجة" onclick="adjustStudentGrade('${s.uid}', -1)">-</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function setStudentGrade(classId, studentUid, nextGrade) {
+      const val = Number(nextGrade) || 0;
+      await db.ref(`classes/${classId}/students/${studentUid}/grade`).set(val);
+      await db.ref(`students/${studentUid}/grade`).set(val).catch(() => {});
+    }
+
+    async function adjustStudentGrade(studentUid, delta) {
+      const cls = getActiveClass();
+      if (!cls) return;
+      const currentGrade = getStudentGradeValue(cls.students?.[studentUid] || {});
+      await setStudentGrade(cls.id, studentUid, currentGrade + delta);
+      showToast(delta > 0 ? 'تمت إضافة درجة للطالب' : 'تم خصم درجة من الطالب', 'info');
+    }
+
+    async function handleAddHomework(e) {
+      e.preventDefault();
+      const cls = getActiveClass();
+      if (!cls) return;
+      await db.ref(`classes/${cls.id}/assignments`).push({
+        title: document.getElementById('hw-title').value.trim(),
+        dueDate: document.getElementById('hw-due').value,
+        description: document.getElementById('hw-desc').value.trim(),
+        createdAt: Date.now()
+      });
+      e.target.reset();
+      showToast('تم نشر الواجب المنزلي', 'success');
+    }
+
+    async function gradeHomeworkSubmission(hwId, studentUid) {
+      const cls = getActiveClass();
+      if (!cls) return;
+      const inputEl = document.getElementById(`hw-grade-${hwId}-${studentUid}`);
+      const gradeVal = Number(inputEl?.value);
+      if (Number.isNaN(gradeVal)) return showToast('أدخل درجة صحيحة', 'error');
+
+      const existingSub = cls.assignments?.[hwId]?.submissions?.[studentUid] || {};
+      const prevGrade = typeof existingSub.grade === 'number' ? Number(existingSub.grade) : 0;
+      const delta = gradeVal - prevGrade;
+
+      await db.ref(`classes/${cls.id}/assignments/${hwId}/submissions/${studentUid}`).update({
+        grade: gradeVal,
+        gradedAt: Date.now()
+      });
+
+      if (delta !== 0) {
+        const currentStudentGrade = getStudentGradeValue(cls.students?.[studentUid] || {});
+        await setStudentGrade(cls.id, studentUid, currentStudentGrade + delta);
+      }
+      showToast('تم حفظ درجة الواجب وتحديث درجة الطالب', 'success');
+    }
+
+    function renderTeacherHomework() {
+      const cls = getActiveClass();
+      const list = document.getElementById('teacher-homework-list');
+      if (!cls) return;
+      const hws = Object.entries(cls.assignments || {}).map(([id, h]) => ({ id, ...h }));
+      if (hws.length === 0) {
+        list.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد واجبات منزلية في هذا الصف.</p></div>';
+        return;
+      }
+
+      list.innerHTML = hws.map(hw => {
+        const subs = Object.entries(hw.submissions || {});
+        return `
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <h3 style="color:#e0f2fe;">${escapeHtml(hw.title)}</h3>
+              <span class="badge badge-warning">موعد التسليم: ${escapeHtml(hw.dueDate || '')}</span>
+            </div>
+            <p style="color:var(--silver-muted); margin-top:6px;">${escapeHtml(hw.description || '')}</p>
+            <div style="margin-top:12px;">
+              <strong style="color:#bae6fd; font-size:0.9rem;">تسليمات الطلاب (${subs.length}):</strong>
+              ${subs.length === 0 ? '<p style="color:var(--silver-muted); font-size:0.86rem;">لا توجد تسليمات بعد.</p>' : subs.map(([uid, sub]) => `
+                <div style="margin-top:8px; padding:10px; border-radius:10px; background:#0b172c; border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                  <div>
+                    <strong>${escapeHtml(sub.studentName || 'طالب')}</strong>
+                    <div style="font-size:0.86rem; color:#bae6fd; margin-top:3px;">${escapeHtml(sub.answer || '')}</div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <input type="number" id="hw-grade-${hw.id}-${uid}" class="form-control" style="width:85px; padding:6px 8px;" value="${typeof sub.grade === 'number' ? sub.grade : ''}" placeholder="الدرجة" />
+                    <button class="btn btn-primary btn-sm" onclick="gradeHomeworkSubmission('${hw.id}', '${uid}')">تصحيح</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function getRankedStudents(cls) {
+      return computeClassStudentStats(cls)
+        .sort((a, b) => (b.grade - a.grade) || (b.quizScore - a.quizScore));
+    }
+
+    function renderLeaderboardRows(ranked) {
+      if (ranked.length === 0) return '<p style="color:var(--silver-muted);">لا يوجد طلاب في هذا الصف بعد.</p>';
+      return ranked.map((s, idx) => {
+        const rank = idx + 1;
+        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        const pillClass = rank === 1 ? 'rank-pill-1' : rank === 2 ? 'rank-pill-2' : rank === 3 ? 'rank-pill-3' : 'badge-blue';
+        return `
+          <div class="card ${rankClass}" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span class="badge ${pillClass}">#${rank}</span>
+              <div>
+                <strong style="color:#e0f2fe;">${escapeHtml(s.name)}</strong>
+                <div style="font-size:0.8rem; color:var(--silver-muted);">المستوى ${s.level}</div>
+              </div>
+            </div>
+            <span class="badge badge-purple" style="font-size:0.88rem;">الدرجة: ${s.grade}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderTeacherLeaderboard() {
+      const cls = getActiveClass();
+      const box = document.getElementById('teacher-leaderboard-list');
+      const btn = document.getElementById('toggle-lb-btn');
+      if (!cls) return;
+      const hiddenFlag = !!cls.leaderboardHidden;
+      btn.textContent = hiddenFlag ? 'إظهار اللوحة للطلاب' : 'إخفاء اللوحة عن الطلاب';
+      box.innerHTML = renderLeaderboardRows(getRankedStudents(cls));
+    }
+
+    async function toggleLeaderboardVisibility() {
+      const cls = getActiveClass();
+      if (!cls) return;
+      const nextHidden = !cls.leaderboardHidden;
+      await db.ref(`classes/${cls.id}/leaderboardHidden`).set(nextHidden);
+      showToast(nextHidden ? 'تم إخفاء لوحة المتصدرين عن الطلاب' : 'تم إظهار لوحة المتصدرين للطلاب', 'info');
+    }
+
+    function getWheelStudents() {
+      const cls = getActiveClass();
+      if (!cls) return [];
+      return Object.entries(cls.students || {})
+        .map(([key, s]) => ({ id: key, name: s && s.name ? s.name : '' }))
+        .filter(s => s.name && !excludedStudentIds.includes(s.id));
+    }
+
+    function drawWheel() {
+      const canvas = document.getElementById('wheelCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const items = getWheelStudents();
+      const cx = canvas.width / 2, cy = canvas.height / 2, r = cx - 8;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      renderExcludedBox();
+
+      if (items.length === 0) {
+        ctx.fillStyle = '#0d192f';
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 15px Cairo';
+        ctx.textAlign = 'center';
+        ctx.fillText('لا يوجد طلاب متاحون في الصف', cx, cy);
+        return;
+      }
+
+      const palette = ['#0284c7', '#7c3aed', '#0369a1', '#9333ea', '#0ea5e9', '#6366f1', '#1d4ed8', '#a855f7'];
+      const slice = (Math.PI * 2) / items.length;
+
+      items.forEach((item, i) => {
+        const start = wheelAngle + i * slice;
+        const end = start + slice;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, end);
+        ctx.closePath();
+        ctx.fillStyle = palette[i % palette.length];
+        ctx.fill();
+        ctx.strokeStyle = '#070b14';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(start + slice / 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 14px Cairo';
+        ctx.textAlign = 'right';
+        ctx.fillText(item.name.slice(0, 14), r - 14, 5);
+        ctx.restore();
+      });
+    }
+
+    function spinWheel() {
+      if (isSpinning) return;
+      const items = getWheelStudents();
+      if (items.length === 0) return showToast('لا يوجد طلاب متاحون في العجلة', 'error');
+
+      isSpinning = true;
+      document.getElementById('wheel-winner-box').classList.add('hidden');
+      const extraSpins = (5 + Math.random() * 4) * Math.PI * 2;
+      const startAngle = wheelAngle;
+      const duration = 3600;
+      const startTime = performance.now();
+
+      function animate(now) {
+        const t = Math.min((now - startTime) / duration, 1);
+        const easeOut = 1 - Math.pow(1 - t, 3);
+        wheelAngle = startAngle + extraSpins * easeOut;
+        drawWheel();
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          isSpinning = false;
+          const slice = (Math.PI * 2) / items.length;
+          const normalized = ((Math.PI * 1.5 - wheelAngle) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+          const idx = Math.floor(normalized / slice) % items.length;
+          lastSelectedStudent = items[idx];
+          document.getElementById('wheel-winner-name').textContent = lastSelectedStudent.name;
+          document.getElementById('wheel-winner-box').classList.remove('hidden');
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    function excludeWinner() {
+      if (!lastSelectedStudent) return;
+      if (!excludedStudentIds.includes(lastSelectedStudent.id)) excludedStudentIds.push(lastSelectedStudent.id);
+      document.getElementById('wheel-winner-box').classList.add('hidden');
+      drawWheel();
+    }
+
+    function restoreExcludedStudents() {
+      excludedStudentIds = [];
+      document.getElementById('wheel-winner-box').classList.add('hidden');
+      drawWheel();
+      showToast('تمت إعادة جميع الطلاب', 'success');
+    }
+
+    function renderExcludedBox() {
+      const cls = getActiveClass();
+      const box = document.getElementById('excluded-students-area');
+      if (!cls || excludedStudentIds.length === 0) { box.innerHTML = ''; return; }
+      const all = cls.students || {};
+      const chips = excludedStudentIds.map(id => {
+        const s = all[id];
+        if (!s || !s.name) return '';
+        return `<span class="badge badge-warning" style="margin:3px; cursor:pointer;" onclick="reincludeStudent('${id}')">${escapeHtml(s.name)} ×</span>`;
+      }).join('');
+      box.innerHTML = `<div style="font-size:0.84rem; font-weight:700; color:var(--silver-muted);">المستبعدون (اضغط للإعادة):</div><div>${chips}</div>`;
+    }
+
+    function reincludeStudent(id) {
+      excludedStudentIds = excludedStudentIds.filter(x => x !== id);
+      drawWheel();
+    }
+
+    function openQuizModal(quizId = null) {
+      const cls = getActiveClass();
+      if (!cls) return showToast('اختر صفاً أولاً', 'error');
+      document.getElementById('quiz-form').reset();
+      document.getElementById('questions-container').innerHTML = '';
+      document.getElementById('edit-quiz-id').value = '';
+
+      if (quizId && cls.quizzes && cls.quizzes[quizId]) {
+        const qz = cls.quizzes[quizId];
+        document.getElementById('quiz-modal-title').textContent = 'تعديل الاختبار';
+        document.getElementById('edit-quiz-id').value = quizId;
+        document.getElementById('quiz-title').value = qz.title || '';
+        document.getElementById('quiz-desc').value = qz.description || '';
+        document.getElementById('quiz-published').checked = !!qz.published;
+        (qz.questions || []).forEach(q => addQuestionBlock(q));
+      } else {
+        document.getElementById('quiz-modal-title').textContent = 'إضافة اختبار جديد';
+        addQuestionBlock();
+      }
+      document.getElementById('quiz-modal').classList.remove('hidden');
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    function addQuestionBlock(data = null) {
+      const container = document.getElementById('questions-container');
+      const idx = container.children.length + 1;
+      const opts = data?.options || ['', '', '', ''];
+      const correct = data?.correctIndex ?? 0;
+
+      const div = document.createElement('div');
+      div.className = 'card q-block';
+      div.style.padding = '14px';
+      div.style.background = '#0d192f';
+      div.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <strong style="color:#e0f2fe;">سؤال ${idx}</strong>
+          <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('.q-block').remove()">حذف السؤال</button>
+        </div>
+        <div class="input-group">
+          <label>نص السؤال</label>
+          <input type="text" class="form-control q-text" value="${escapeHtml(data?.text || '')}" required />
+        </div>
+        <div class="grid-2" style="gap:8px;">
+          ${opts.map((o, i) => `<input type="text" class="form-control q-opt" value="${escapeHtml(o)}" placeholder="اختيار ${i + 1}" required />`).join('')}
+        </div>
+        <div class="grid-2" style="gap:10px; margin-top:10px;">
+          <div class="input-group" style="margin-bottom:0;">
+            <label>الإجابة الصحيحة</label>
+            <select class="form-control q-correct">
+              <option value="0" ${correct === 0 ? 'selected' : ''}>الاختيار 1</option>
+              <option value="1" ${correct === 1 ? 'selected' : ''}>الاختيار 2</option>
+              <option value="2" ${correct === 2 ? 'selected' : ''}>الاختيار 3</option>
+              <option value="3" ${correct === 3 ? 'selected' : ''}>الاختيار 4</option>
+            </select>
+          </div>
+          <div class="input-group" style="margin-bottom:0;">
+            <label>شرح السؤال (يظهر للطالب بعد الحل)</label>
+            <input type="text" class="form-control q-explanation" value="${escapeHtml(data?.explanation || '')}" />
+          </div>
+        </div>
+      `;
+      container.appendChild(div);
+    }
+
+    async function handleSaveQuiz(e) {
+      e.preventDefault();
+      const cls = getActiveClass();
+      if (!cls) return;
+      const qBlocks = [...document.querySelectorAll('.q-block')];
+      if (qBlocks.length === 0) return showToast('أضف سؤالاً واحداً على الأقل', 'error');
+
+      const questions = qBlocks.map(block => ({
+        text: block.querySelector('.q-text').value.trim(),
+        options: [...block.querySelectorAll('.q-opt')].map(i => i.value.trim()),
+        correctIndex: Number(block.querySelector('.q-correct').value),
+        explanation: block.querySelector('.q-explanation').value.trim()
+      }));
+
+      const payload = {
+        title: document.getElementById('quiz-title').value.trim(),
+        description: document.getElementById('quiz-desc').value.trim(),
+        published: document.getElementById('quiz-published').checked,
+        questions,
+        updatedAt: Date.now()
+      };
+
+      const editId = document.getElementById('edit-quiz-id').value;
+      showLoader(true);
+      try {
+        if (editId) await db.ref(`classes/${cls.id}/quizzes/${editId}`).update(payload);
+        else {
+          payload.createdAt = Date.now();
+          await db.ref(`classes/${cls.id}/quizzes`).push(payload);
+        }
+        closeQuizModal();
+        showToast('تم حفظ الاختبار في قاعدة البيانات', 'success');
+      } catch (err) {
+        showToast('تعذر حفظ الاختبار', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    async function deleteQuiz(quizId) {
+      const cls = getActiveClass();
+      if (!cls || !confirm('حذف هذا الاختبار؟')) return;
+      await db.ref(`classes/${cls.id}/quizzes/${quizId}`).remove();
+      showToast('تم حذف الاختبار', 'info');
+    }
+
+    function renderQuizzesTab() {
+      const cls = getActiveClass();
+      const list = document.getElementById('teacher-quizzes-list');
+      if (!cls) return;
+      const quizzes = Object.entries(cls.quizzes || {}).map(([id, q]) => ({ id, ...q }));
+      if (quizzes.length === 0) {
+        list.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد اختبارات في هذا الصف.</p></div>';
+        return;
+      }
+
+      list.innerHTML = quizzes.map(qz => {
+        const qCount = (qz.questions || []).length;
+        const subs = Object.values(qz.submissions || {});
+        return `
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+              <div>
+                <h3 style="color:#e0f2fe;">${escapeHtml(qz.title)}</h3>
+                <p style="color:var(--silver-muted); font-size:0.9rem;">${escapeHtml(qz.description || '')}</p>
+                <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                  <span class="badge badge-blue">${qCount} أسئلة</span>
+                  <span class="badge ${qz.published ? 'badge-success' : 'badge-warning'}">${qz.published ? 'منشور' : 'مسودة'}</span>
+                  <span class="badge badge-purple">${subs.length} تسليم</span>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn btn-outline btn-sm" onclick="openQuizModal('${qz.id}')">تعديل</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteQuiz('${qz.id}')">حذف</button>
+              </div>
+            </div>
+            ${subs.length > 0 ? `
+              <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
+                <strong style="font-size:0.88rem; color:#bae6fd;">نتائج الطلاب في الاختبار</strong>
+                <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:8px;">
+                  ${subs.map(sub => `<span class="badge badge-success">${escapeHtml(sub.studentName || 'طالب')}: ${sub.score} / ${sub.total}</span>`).join('')}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderTeacherSentQuizzes() {
+      const cls = getActiveClass();
+      const box = document.getElementById('teacher-sent-quizzes-list');
+      if (!cls || !box) return;
+      const items = Object.entries(cls.studentQuizRequests || {}).map(([id, r]) => ({ id, ...r }));
+      if (items.length === 0) {
+        box.innerHTML = '<p style="color:var(--silver-muted);">لا توجد اختبارات مرسلة من الطلاب بعد.</p>';
+        return;
+      }
+      box.innerHTML = items.map(r => `
+        <div style="padding:12px 14px; border-radius:12px; background:#0b182e; border:1px solid var(--border);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <strong style="color:#e0f2fe;">${escapeHtml(r.studentName || 'طالب')}</strong>
+            <span class="badge badge-purple">${escapeHtml(r.title || '')}</span>
+          </div>
+          <p style="margin-top:6px; color:#bae6fd; font-size:0.9rem; white-space:pre-line;">${escapeHtml(r.content || '')}</p>
+        </div>
+      `).join('');
+    }
+
+    function getYoutubeEmbedUrl(url = '') {
+      const reg = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/;
+      const match = url.match(reg);
+      return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+    }
+
+    function renderMediaElement(item) {
+      if (item.type === 'image') return `<img src="${escapeHtml(item.url)}" alt="${escapeHtml(item.title)}" class="media-img" onerror="this.style.display='none'" />`;
+      const yt = getYoutubeEmbedUrl(item.url);
+      if (yt) return `<div class="media-frame"><iframe src="${yt}" allowfullscreen></iframe></div>`;
+      return `<div class="media-frame"><video src="${escapeHtml(item.url)}" controls></video></div>`;
+    }
+
+    async function handleAddMedia(e) {
+      e.preventDefault();
+      const cls = getActiveClass();
+      if (!cls) return;
+      await db.ref(`classes/${cls.id}/media`).push({
+        type: document.getElementById('media-type').value,
+        title: document.getElementById('media-title').value.trim(),
+        url: document.getElementById('media-url').value.trim(),
+        description: document.getElementById('media-desc').value.trim(),
+        createdAt: Date.now()
+      });
+      e.target.reset();
+      showToast('تم حفظ المحتوى في قاعدة البيانات', 'success');
+    }
+
+    async function deleteMedia(mediaId) {
+      const cls = getActiveClass();
+      if (!cls || !confirm('حذف هذا المحتوى؟')) return;
+      await db.ref(`classes/${cls.id}/media/${mediaId}`).remove();
+      showToast('تم حذف المحتوى', 'info');
+    }
+
+    function renderMediaTab() {
+      const cls = getActiveClass();
+      const list = document.getElementById('teacher-media-list');
+      if (!cls) return;
+      const items = Object.entries(cls.media || {}).map(([id, m]) => ({ id, ...m }));
+      if (items.length === 0) {
+        list.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا يوجد محتوى مضاف لهذا الصف.</p></div>';
+        return;
+      }
+      list.innerHTML = items.map(item => `
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="badge ${item.type === 'video' ? 'badge-blue' : 'badge-purple'}">${item.type === 'video' ? 'فيديو' : 'صورة'}</span>
+            <button class="btn btn-danger btn-sm" onclick="deleteMedia('${item.id}')">حذف</button>
+          </div>
+          <h4 style="margin-top:10px; color:#e0f2fe;">${escapeHtml(item.title)}</h4>
+          <p style="color:var(--silver-muted); font-size:0.88rem;">${escapeHtml(item.description || '')}</p>
+          ${renderMediaElement(item)}
+        </div>
+      `).join('');
+    }
+
+    function renderChatMessagesIntoBox(box, msgs, myUid, isTeacherView = false) {
+      if (!msgs || msgs.length === 0) {
+        box.innerHTML = '<p style="color:var(--silver-muted); text-align:center; margin:auto;">لا توجد رسائل في دردشة الصف بعد. ابدأ المحادثة الآن.</p>';
+        return;
+      }
+      box.innerHTML = msgs.map(m => {
+        const mine = isTeacherView ? (m.senderRole === 'teacher' && m.senderUid === myUid) : (m.senderUid === myUid);
+        return `
+          <div class="chat-msg ${mine ? 'mine' : ''}">
+            <div class="chat-meta">
+              <span>${escapeHtml(m.senderName || 'مستخدم')} ${m.senderRole === 'teacher' ? '• المعلم' : ''}</span>
+              <span>${new Date(m.timestamp || Date.now()).toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+            <div>${escapeHtml(m.text || '')}</div>
+          </div>
+        `;
+      }).join('');
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function subscribeTeacherChat() {
+      const cls = getActiveClass();
+      const box = document.getElementById('teacher-chat-box');
+      if (teacherChatRef) { teacherChatRef.off(); teacherChatRef = null; }
+      if (!cls) return;
+      teacherChatRef = db.ref(`classes/${cls.id}/chat`).limitToLast(100);
+      teacherChatRef.on('value', snap => {
+        const msgs = Object.values(snap.val() || {});
+        renderChatMessagesIntoBox(box, msgs, currentUserProfile?.uid, true);
+      });
+    }
+
+    async function handleTeacherSendChat(e) {
+      e.preventDefault();
+      const cls = getActiveClass();
+      const input = document.getElementById('teacher-chat-input');
+      const text = input.value.trim();
+      if (!cls || !text || !currentUserProfile) return;
+      try {
+        await db.ref(`classes/${cls.id}/chat`).push({
+          senderUid: currentUserProfile.uid,
+          senderName: currentUserProfile.name,
+          senderRole: 'teacher',
+          text,
+          timestamp: Date.now()
+        });
+        input.value = '';
+      } catch (err) {
+        showToast('تعذر إرسال الرسالة', 'error');
+      }
+    }
+
+    function populateCertStudents() {
+      const sSel = document.getElementById('cert-student-select');
+      if (!sSel) return;
+      const cls = getActiveClass();
+      const studs = Object.entries(cls?.students || {});
+      sSel.innerHTML = studs.length === 0
+        ? '<option value="">لا يوجد طلاب في هذا الصف</option>'
+        : studs.map(([uid, s]) => `<option value="${uid}">${escapeHtml(s.name || 'طالب')}</option>`).join('');
+    }
+
+    function readFileAsDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handleIssueCertificate(e) {
+      e.preventDefault();
+      const cls = getActiveClass();
+      if (!cls) return showToast('اختر صفاً أولاً', 'error');
+      const cid = cls.id;
+      const sid = document.getElementById('cert-student-select').value;
+      const title = document.getElementById('cert-title').value.trim();
+      const fileInput = document.getElementById('cert-file');
+      const urlInput = document.getElementById('cert-url').value.trim();
+
+      if (!sid || !title) return showToast('أكمل بيانات الشهادة', 'error');
+
+      let fileData = urlInput;
+      let fileType = 'link';
+      let fileName = title;
+
+      if (fileInput.files && fileInput.files[0]) {
+        const f = fileInput.files[0];
+        if (f.size > 2.5 * 1024 * 1024) {
+          return showToast('حجم الملف كبير، يُفضّل أقل من 2.5 ميجابايت أو استخدام رابط', 'error');
+        }
+        fileData = await readFileAsDataUrl(f);
+        fileType = f.type.includes('pdf') ? 'pdf' : 'image';
+        fileName = f.name;
+      }
+
+      if (!fileData) return showToast('ارفع ملف PDF/صورة أو أدخل رابطاً', 'error');
+
+      const studentName = cls?.students?.[sid]?.name || 'طالب';
+
+      showLoader(true);
+      try {
+        await db.ref(`classes/${cid}/certificates`).push({
+          studentUid: sid,
+          studentName,
+          className: cls?.name || '',
+          teacherName: currentUserProfile.name,
+          title,
+          fileData,
+          fileType,
+          fileName,
+          issuedAt: Date.now()
+        });
+        e.target.reset();
+        showToast('تم منح الشهادة للطالب بنجاح', 'success');
+      } catch (err) {
+        showToast('تعذر منح الشهادة', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function renderCertificatePreview(cert) {
+      if (!cert.fileData) return '';
+      if (cert.fileType === 'pdf' || cert.fileData.startsWith('data:application/pdf')) {
+        return `<div style="margin-top:10px;"><a href="${cert.fileData}" download="${escapeHtml(cert.fileName || 'certificate.pdf')}" target="_blank" class="btn btn-secondary btn-sm">فتح / تحميل ملف PDF</a></div>`;
+      }
+      return `<img src="${cert.fileData}" alt="${escapeHtml(cert.title)}" class="media-img" onerror="this.style.display='none'" />`;
+    }
+
+    function renderTeacherCertificates() {
+      const cls = getActiveClass();
+      const box = document.getElementById('teacher-certificates-list');
+      if (!cls || !box) return;
+      const certs = Object.entries(cls.certificates || {}).map(([id, cert]) => ({ id, ...cert }));
+      if (certs.length === 0) {
+        box.innerHTML = '<p style="color:var(--silver-muted);">لم يتم منح شهادات في هذا الصف بعد.</p>';
+        return;
+      }
+      box.innerHTML = certs.map(cert => `
+        <div class="card" style="background:#0d192f;">
+          <span class="badge badge-purple">${escapeHtml(cert.className || cls.name)}</span>
+          <h4 style="margin-top:8px; color:#e0f2fe;">${escapeHtml(cert.title)}</h4>
+          <p style="font-size:0.88rem; color:#7dd3fc;">الطالب: ${escapeHtml(cert.studentName || '')}</p>
+          ${renderCertificatePreview(cert)}
+        </div>
+      `).join('');
+    }
+
+    // ==================== STUDENT DASHBOARD ====================
+    async function loadStudentDashboard(user, existingProfile, classCode = '', explicitClassId = '') {
+      showLoader(true);
+      try {
+        let targetClassId = explicitClassId || existingProfile?.classId || localStorage.getItem(STORAGE_KEYS.studentClassId) || '';
+        if (classCode) {
+          const cSnap = await db.ref('classes').orderByChild('code').equalTo(classCode).get();
+          if (!cSnap.exists()) {
+            showToast('رمز الصف غير صحيح', 'error');
+            goHome();
+            return;
+          }
+          targetClassId = Object.keys(cSnap.val())[0];
+        }
+
+        if (!targetClassId) {
+          showToast('يرجى إدخال رمز الصف للدخول', 'error');
+          goHome();
+          return;
+        }
+
+        const clsSnap = await db.ref(`classes/${targetClassId}`).get();
+        if (!clsSnap.exists()) {
+          showToast('هذا الصف غير موجود', 'error');
+          goHome();
+          return;
+        }
+
+        const clsVal = clsSnap.val();
+        const studentName = existingProfile?.name || user.displayName || user.email.split('@')[0];
+        const prevClassStudent = clsVal.students?.[user.uid] || {};
+        const unifiedGrade = Math.max(
+          getStudentGradeValue(prevClassStudent),
+          getStudentGradeValue(existingProfile || {})
+        );
+
+        if (!existingProfile) {
+          await db.ref(`students/${user.uid}`).set({
+            uid: user.uid, role: 'student', name: studentName, email: user.email,
+            classId: targetClassId, classCode: clsVal.code, grade: unifiedGrade, createdAt: Date.now()
+          });
+        } else {
+          await db.ref(`students/${user.uid}`).update({
+            classId: targetClassId, classCode: clsVal.code, grade: unifiedGrade
+          }).catch(() => {});
+        }
+
+        await db.ref(`classes/${targetClassId}/students/${user.uid}`).set({
+          uid: user.uid,
+          name: studentName,
+          email: user.email,
+          grade: unifiedGrade,
+          joinedAt: prevClassStudent.joinedAt || Date.now()
+        });
+
+        localStorage.setItem(STORAGE_KEYS.role, 'student');
+        localStorage.setItem(STORAGE_KEYS.studentClassId, targetClassId);
+
+        currentUserProfile = { uid: user.uid, name: studentName, email: user.email };
+        studentClassId = targetClassId;
+
+        document.getElementById('student-header-name').textContent = studentName;
+        document.getElementById('student-class-badge').textContent = `${clsVal.name || ''} (${clsVal.code || ''})`;
+        document.getElementById('s-settings-name').value = studentName;
+        document.getElementById('s-settings-email').value = user.email;
+
+        hideAllViews();
+        document.getElementById('view-student-dash').classList.remove('hidden');
+
+        if (studentClassListenerRef) studentClassListenerRef.off();
+        studentClassListenerRef = db.ref(`classes/${targetClassId}`);
+        studentClassListenerRef.on('value', s => {
+          const latest = s.val();
+          if (!latest) return handleLogout();
+          studentClassData = latest;
+          document.getElementById('student-class-badge').textContent = `${latest.name || ''} (${latest.code || ''})`;
+          renderStudentHeaderGrade(latest);
+          renderStudentHomework(latest.assignments || {});
+          renderStudentQuizzesList(latest.quizzes || {});
+          renderStudentSentQuizzes(latest.studentQuizRequests || {});
+          renderStudentMedia(latest.media || {});
+          renderStudentLeaderboard(latest);
+          renderStudentAchievements(latest);
+          renderStudentCertificates(latest.certificates || {});
+          if (openedQuizId && latest.quizzes && latest.quizzes[openedQuizId]) {
+            renderActiveStudentQuiz(openedQuizId, latest.quizzes[openedQuizId]);
+          }
+        });
+
+        subscribeStudentChat(targetClassId, user.uid);
+      } catch (err) {
+        showToast('تعذر تحميل بيانات الطالب', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function renderStudentHeaderGrade(latest) {
+      const myGrade = getStudentGradeValue(latest.students?.[currentUserProfile.uid] || {});
+      const lvl = getLevelFromGrade(myGrade);
+      document.getElementById('student-grade-level-badge').textContent = `الدرجة: ${myGrade} • المستوى ${lvl}`;
+    }
+
+    function switchStudentTab(tab) {
+      document.querySelectorAll('#view-student-dash .nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.stab === tab);
+      });
+      ['chat', 'homework', 'quizzes', 'media', 'leaderboard', 'achievements', 'certificates', 'settings']
+        .forEach(t => document.getElementById(`s-tab-${t}`).classList.toggle('hidden', t !== tab));
+    }
+
+    function subscribeStudentChat(classId, myUid) {
+      const box = document.getElementById('student-chat-box');
+      if (studentChatRef) { studentChatRef.off(); studentChatRef = null; }
+      studentChatRef = db.ref(`classes/${classId}/chat`).limitToLast(100);
+      studentChatRef.on('value', snap => {
+        const msgs = Object.values(snap.val() || {});
+        renderChatMessagesIntoBox(box, msgs, myUid, false);
+      });
+    }
+
+    async function handleStudentSendChat(e) {
+      e.preventDefault();
+      if (!studentClassId || !currentUserProfile) return;
+      const input = document.getElementById('student-chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      try {
+        await db.ref(`classes/${studentClassId}/chat`).push({
+          senderUid: currentUserProfile.uid,
+          senderName: currentUserProfile.name,
+          senderRole: 'student',
+          text,
+          timestamp: Date.now()
+        });
+        input.value = '';
+      } catch (err) {
+        showToast('تعذر إرسال الرسالة', 'error');
+      }
+    }
+
+    function renderStudentHomework(hwObj) {
+      const box = document.getElementById('student-homework-list');
+      const items = Object.entries(hwObj).map(([id, h]) => ({ id, ...h }));
+      if (items.length === 0) {
+        box.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد واجبات منزلية حالياً.</p></div>';
+        return;
+      }
+
+      box.innerHTML = items.map(hw => {
+        const mySub = hw.submissions?.[currentUserProfile.uid];
+        return `
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <h3 style="color:#e0f2fe;">${escapeHtml(hw.title)}</h3>
+              <span class="badge badge-warning">موعد التسليم: ${escapeHtml(hw.dueDate || '')}</span>
+            </div>
+            <p style="color:var(--silver-muted); margin-top:6px;">${escapeHtml(hw.description || '')}</p>
+            ${mySub ? `
+              <div style="margin-top:12px; padding:12px; border-radius:12px; background:#0b182e; border:1px solid rgba(56,189,248,0.28);">
+                <div><strong style="color:#7dd3fc;">إجابتك المرسلة:</strong> ${escapeHtml(mySub.answer || '')}</div>
+                <div style="margin-top:6px;">
+                  ${typeof mySub.grade === 'number'
+                    ? `<span class="badge badge-success">درجة الواجب: ${mySub.grade}</span>`
+                    : `<span class="badge badge-blue">بانتظار تصحيح المعلم</span>`}
+                </div>
+              </div>
+            ` : `
+              <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                <input type="text" id="hw-ans-${hw.id}" class="form-control" style="flex:1; min-width:200px;" placeholder="اكتب إجابتك أو رابط الحل..." />
+                <button class="btn btn-primary btn-sm" onclick="submitStudentHomework('${hw.id}')">إرسال الواجب</button>
+              </div>
+            `}
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function submitStudentHomework(hwId) {
+      const ansEl = document.getElementById(`hw-ans-${hwId}`);
+      const answer = ansEl?.value.trim();
+      if (!answer) return showToast('اكتب إجابتك أو رابط الحل أولاً', 'error');
+
+      showLoader(true);
+      try {
+        await db.ref(`classes/${studentClassId}/assignments/${hwId}/submissions/${currentUserProfile.uid}`).set({
+          studentUid: currentUserProfile.uid,
+          studentName: currentUserProfile.name,
+          answer,
+          submittedAt: Date.now()
+        });
+        showToast('تم إرسال الواجب بنجاح', 'success');
+      } catch (err) {
+        showToast('تعذر إرسال الواجب', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function renderStudentQuizzesList(quizzesObj) {
+      const box = document.getElementById('student-quizzes-list');
+      const published = Object.entries(quizzesObj).map(([id, q]) => ({ id, ...q })).filter(q => q.published);
+      if (published.length === 0) {
+        box.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد اختبارات متاحة حالياً.</p></div>';
+        return;
+      }
+
+      box.innerHTML = published.map(qz => {
+        const qCount = (qz.questions || []).length;
+        const mySub = qz.submissions?.[currentUserProfile.uid];
+        return `
+          <div class="quiz-list-item" onclick="openStudentQuiz('${qz.id}')">
+            <div>
+              <h3 style="color:#e0f2fe; font-size:1.1rem;">${escapeHtml(qz.title)}</h3>
+              <p style="color:var(--silver-muted); font-size:0.88rem;">${escapeHtml(qz.description || 'اضغط لفتح الأسئلة والاختيارات')}</p>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge badge-blue">${qCount} أسئلة</span>
+              ${mySub ? `<span class="badge badge-success">درجتك: ${mySub.score} / ${mySub.total}</span>` : `<span class="badge badge-purple">حل لزيادة درجتك</span>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function handleStudentSendQuizToTeacher(e) {
+      e.preventDefault();
+      if (!studentClassId || !currentUserProfile) return;
+      const title = document.getElementById('student-custom-quiz-title').value.trim();
+      const content = document.getElementById('student-custom-quiz-text').value.trim();
+      if (!title || !content) return;
+
+      showLoader(true);
+      try {
+        await db.ref(`classes/${studentClassId}/studentQuizRequests`).push({
+          studentUid: currentUserProfile.uid,
+          studentName: currentUserProfile.name,
+          title,
+          content,
+          sentAt: Date.now()
+        });
+        e.target.reset();
+        showToast('تم إرسال الاختبار للمعلم بشكل خاص', 'success');
+      } catch (err) {
+        showToast('تعذر إرسال الاختبار', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function renderStudentSentQuizzes(reqObj) {
+      const box = document.getElementById('student-my-sent-quizzes');
+      if (!box) return;
+      const mine = Object.values(reqObj).filter(r => r.studentUid === currentUserProfile.uid);
+      if (mine.length === 0) { box.innerHTML = ''; return; }
+      box.innerHTML = `<div style="font-size:0.85rem; color:#7dd3fc; font-weight:700; margin-bottom:6px;">الاختبارات التي أرسلتها للمعلم:</div>` +
+        mine.map(m => `<div style="padding:8px 12px; border-radius:10px; background:#091426; border:1px solid var(--border); margin-bottom:6px;"><strong>${escapeHtml(m.title)}</strong> — <span style="color:var(--silver-muted); font-size:0.85rem;">${escapeHtml(m.content)}</span></div>`).join('');
+    }
+
+    function openStudentQuiz(quizId) {
+      const qz = studentClassData?.quizzes?.[quizId];
+      if (!qz) return;
+      openedQuizId = quizId;
+      document.getElementById('student-quizzes-list-view').classList.add('hidden');
+      document.getElementById('student-active-quiz-view').classList.remove('hidden');
+      renderActiveStudentQuiz(quizId, qz);
+    }
+
+    function closeActiveStudentQuiz() {
+      openedQuizId = null;
+      document.getElementById('student-active-quiz-view').classList.add('hidden');
+      document.getElementById('student-quizzes-list-view').classList.remove('hidden');
+    }
+
+    function renderActiveStudentQuiz(quizId, qz) {
+      const card = document.getElementById('student-active-quiz-card');
+      const questions = qz.questions || [];
+      const mySub = qz.submissions?.[currentUserProfile.uid];
+
+      card.innerHTML = `
+        <div style="border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:18px;">
+          <h2 style="color:#e0f2fe;">${escapeHtml(qz.title)}</h2>
+          ${qz.description ? `<p style="color:#bae6fd; margin-top:6px; background:#0b182e; padding:12px 14px; border-radius:12px; border:1px solid rgba(56,189,248,0.22);">${escapeHtml(qz.description)}</p>` : ''}
+        </div>
+        ${questions.map((q, qIdx) => {
+          const picked = mySub?.answers?.[qIdx];
+          const isCorrect = mySub ? Number(picked) === Number(q.correctIndex) : null;
+          return `
+            <div style="margin-bottom:16px; padding:15px; background:#0d192f; border-radius:14px; border:1px solid rgba(56,189,248,0.25);">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+                <span style="font-weight:800; color:#e0f2fe;">${qIdx + 1}. ${escapeHtml(q.text)}</span>
+                ${mySub ? `<span class="badge ${isCorrect ? 'badge-success' : 'badge-danger'}">${isCorrect ? '+1 درجة' : '0 درجة'}</span>` : `<span class="badge badge-blue">+1 درجة للصحيح</span>`}
+              </div>
+              ${(q.options || []).map((opt, oIdx) => `
+                <label style="display:flex; align-items:center; gap:8px; margin:7px 0; cursor:pointer; font-weight:600; color:#e2e8f0;">
+                  <input type="radio" name="sq_${quizId}_${qIdx}" value="${oIdx}" ${mySub && Number(picked) === oIdx ? 'checked' : ''} ${mySub ? 'disabled' : ''} />
+                  <span>${escapeHtml(opt)}</span>
+                </label>
+              `).join('')}
+              ${mySub && q.explanation ? `<div style="margin-top:10px; padding:10px 12px; border-radius:10px; background:#081222; border-right:3px solid #38bdf8; font-size:0.88rem; color:#bae6fd;"><strong>شرح:</strong> ${escapeHtml(q.explanation)}</div>` : ''}
+            </div>
+          `;
+        }).join('')}
+        ${!mySub
+          ? `<button class="btn btn-primary" onclick="submitStudentQuiz('${quizId}')">تسليم الإجابات وإضافة الدرجة</button>`
+          : `<div style="padding:14px 18px; border-radius:12px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.35); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;"><strong style="color:#34d399; font-size:1.05rem;">الدرجة المكتسبة: +${mySub.score} من ${mySub.total}</strong><span class="badge badge-success">تم التسليم</span></div>`}
+      `;
+    }
+
+    // الطالب يرفع درجته من خلال حل الاختبارات (كل إجابة صحيحة تضيف +1 درجة)
+    async function submitStudentQuiz(quizId) {
+      const qz = studentClassData?.quizzes?.[quizId];
+      if (!qz) return;
+      if (qz.submissions?.[currentUserProfile.uid]) {
+        return showToast('لقد قمت بتسليم هذا الاختبار مسبقاً', 'info');
+      }
+
+      const questions = qz.questions || [];
+      let score = 0;
+      const total = questions.length;
+      const answers = {};
+      questions.forEach((q, idx) => {
+        const checked = document.querySelector(`input[name="sq_${quizId}_${idx}"]:checked`);
+        const chosen = checked ? Number(checked.value) : null;
+        answers[idx] = chosen;
+        if (chosen !== null && chosen === Number(q.correctIndex)) score += 1;
+      });
+
+      showLoader(true);
+      try {
+        await db.ref(`classes/${studentClassId}/quizzes/${quizId}/submissions/${currentUserProfile.uid}`).set({
+          studentUid: currentUserProfile.uid,
+          studentName: currentUserProfile.name,
+          score, total, answers, submittedAt: Date.now()
+        });
+
+        const currentGrade = getStudentGradeValue(studentClassData?.students?.[currentUserProfile.uid] || {});
+        await setStudentGrade(studentClassId, currentUserProfile.uid, currentGrade + score);
+
+        showToast(`أحسنت! أضفت +${score} درجة إلى رصيدك من أصل ${total}`, 'success');
+      } catch (err) {
+        showToast('تعذر إرسال الإجابات', 'error');
+      } finally {
+        showLoader(false);
+      }
+    }
+
+    function renderStudentMedia(mediaObj) {
+      const box = document.getElementById('student-media-list');
+      const items = Object.values(mediaObj);
+      if (items.length === 0) {
+        box.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا يوجد محتوى منشور حالياً.</p></div>';
+        return;
+      }
+      box.innerHTML = items.map(item => `
+        <div class="card">
+          <span class="badge ${item.type === 'video' ? 'badge-blue' : 'badge-purple'}">${item.type === 'video' ? 'فيديو' : 'صورة'}</span>
+          <h4 style="margin-top:8px; color:#e0f2fe;">${escapeHtml(item.title)}</h4>
+          <p style="color:var(--silver-muted); font-size:0.9rem;">${escapeHtml(item.description || '')}</p>
+          ${renderMediaElement(item)}
+        </div>
+      `).join('');
+    }
+
+    function renderStudentLeaderboard(latest) {
+      const box = document.getElementById('student-leaderboard-list');
+      if (latest.leaderboardHidden) {
+        box.innerHTML = '<p style="color:var(--silver-muted);">لوحة المتصدرين مخفية حالياً بواسطة المعلم.</p>';
+        return;
+      }
+      box.innerHTML = renderLeaderboardRows(getRankedStudents(latest));
+    }
+
+    function renderStudentAchievements(latest) {
+      const uid = currentUserProfile.uid;
+      const myStat = computeClassStudentStats(latest).find(s => s.uid === uid) || {
+        grade: 0, level: 1, quizzesDone: 0, hwDone: 0, quizScore: 0
+      };
+
+      document.getElementById('ach-grade-level').textContent = `الدرجة: ${myStat.grade} • المستوى ${myStat.level}`;
+      document.getElementById('ach-quizzes-done').textContent = myStat.quizzesDone;
+      document.getElementById('ach-hw-done').textContent = myStat.hwDone;
+      document.getElementById('ach-quiz-score').textContent = myStat.quizScore;
+
+      const quizRows = Object.values(latest.quizzes || {})
+        .filter(q => q.submissions?.[uid])
+        .map(q => `<div style="padding:8px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;"><span>اختبار: ${escapeHtml(q.title)}</span><span class="badge badge-blue">+${q.submissions[uid].score} / ${q.submissions[uid].total}</span></div>`);
+
+      const hwRows = Object.values(latest.assignments || {})
+        .filter(h => h.submissions?.[uid])
+        .map(h => `<div style="padding:8px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;"><span>واجب: ${escapeHtml(h.title)}</span><span class="badge badge-success">${typeof h.submissions[uid].grade === 'number' ? 'درجة: ' + h.submissions[uid].grade : 'تم التسليم'}</span></div>`);
+
+      const combined = [...quizRows, ...hwRows];
+      document.getElementById('student-achievements-details').innerHTML = combined.length === 0
+        ? '<p style="color:var(--silver-muted);">ابدأ بحل الاختبارات لرفع درجتك وإظهار إنجازاتك هنا.</p>'
+        : combined.join('');
+    }
+
+    function renderStudentCertificates(certsObj) {
+      const box = document.getElementById('student-certificates-list');
+      const mine = Object.entries(certsObj)
+        .map(([id, c]) => ({ id, ...c }))
+        .filter(c => c.studentUid === currentUserProfile.uid);
+
+      if (mine.length === 0) {
+        box.innerHTML = '<div class="card"><p style="color:var(--silver-muted);">لا توجد شهادات ممنوحة لك بعد.</p></div>';
+        return;
+      }
+
+      box.innerHTML = mine.map(cert => `
+        <div class="card">
+          <span class="badge badge-success">شهادة تكريم</span>
+          <h3 style="margin-top:8px; color:#e0f2fe;">${escapeHtml(cert.title)}</h3>
+          <p style="font-size:0.86rem; color:var(--silver-muted);">الصف: ${escapeHtml(cert.className || '')}</p>
+          ${renderCertificatePreview(cert)}
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
